@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		671ECC19289F1B9600C768D1 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671ECC18289F1B9500C768D1 /* SignUpVC.swift */; };
 		67B55EFF289F02C80083F5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55EFE289F02C80083F5C9 /* AppDelegate.swift */; };
 		67B55F01289F02C80083F5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55F00289F02C80083F5C9 /* SceneDelegate.swift */; };
 		67B55F03289F02C80083F5C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55F02289F02C80083F5C9 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		67B55F4B289F0DD20083F5C9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 67B55F4A289F0DD20083F5C9 /* FirebaseAuth */; };
 		67B55F4D289F0DD20083F5C9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 67B55F4C289F0DD20083F5C9 /* FirebaseCrashlytics */; };
 		67B55F4F289F0DD20083F5C9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 67B55F4E289F0DD20083F5C9 /* FirebaseMessaging */; };
+		67B55F52289F11010083F5C9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55F51289F11010083F5C9 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		671ECC18289F1B9500C768D1 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		67B55EFB289F02C80083F5C9 /* Kuebeeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuebeeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67B55EFE289F02C80083F5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67B55F00289F02C80083F5C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		67B55F3F289F08E90083F5C9 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		67B55F40289F08E90083F5C9 /* Validations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		67B55F41289F08E90083F5C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		67B55F51289F11010083F5C9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				67B55F02289F02C80083F5C9 /* ViewController.swift */,
+				671ECC18289F1B9500C768D1 /* SignUpVC.swift */,
+				67B55F51289F11010083F5C9 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,7 +373,9 @@
 				67B55F42289F08E90083F5C9 /* Utility.swift in Sources */,
 				67B55F3C289F05710083F5C9 /* FirebaseHandler.swift in Sources */,
 				67B55F43289F08E90083F5C9 /* Validations.swift in Sources */,
+				671ECC19289F1B9600C768D1 /* SignUpVC.swift in Sources */,
 				67B55F09289F02C80083F5C9 /* Kuebeeko.xcdatamodeld in Sources */,
+				67B55F52289F11010083F5C9 /* LoginVC.swift in Sources */,
 				67B55F03289F02C80083F5C9 /* ViewController.swift in Sources */,
 				67B55F3E289F08DB0083F5C9 /* Design.swift in Sources */,
 				67B55EFF289F02C80083F5C9 /* AppDelegate.swift in Sources */,

@@ -8,7 +8,14 @@
 import UIKit
 
 struct Messages {
+    static let invalidEmailPassword = "Incorrect Credentials, the email or password is invalid"
+    static let commonError = "Something went wrong, please try again later."
     
+}
+
+struct Colors {
+    static let appTheme = UIColor(red: 47.0/255.0, green: 55.0/255.0, blue: 66.0/255.0, alpha: 1)
+    static let bg = UIColor(red: 211.0/255.0, green: 214.0/255.0, blue: 209.0/255.0, alpha: 1)
 }
 
 //MARK:- Only prints items in debug mode

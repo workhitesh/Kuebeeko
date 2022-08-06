@@ -63,4 +63,38 @@ class Utility {
     class var currentTimestamp: Int {
         return Int(Date().timeIntervalSince1970 * 1000)
     }
+    
+    class func setAppNavBar(){
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .semibold), .foregroundColor: UIColor.white]
+        UINavigationBar.appearance().barStyle = .blackOpaque
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
+    
+    class func setNavigationBar(_ controller:UIViewController, leftImage:UIImage?, rightImage:UIImage?, leftText:String = "", rightText:String = "" , title:String?){
+        controller.navigationController?.isNavigationBarHidden = false
+//        controller.navigationController?.navigationBar.topItem?.title = title
+        controller.navigationItem.title = title
+        controller.navigationController?.navigationBar.barTintColor = Colors.appTheme
+        controller.navigationController?.navigationBar.tintColor = UIColor.white
+        controller.navigationController?.navigationBar.isTranslucent = false
+        
+        var leftBarButton = UIBarButtonItem()
+        if leftText != "" {
+            leftBarButton = UIBarButtonItem(title: leftText, style: .plain, target: controller, action: Selector(("leftBarPressed:")))
+        } else if leftImage != nil {
+            leftBarButton = UIBarButtonItem(image: leftImage, style: .plain, target: controller, action: Selector(("leftBarPressed:")))
+        }
+        
+        var rightBarButton = UIBarButtonItem()
+        if rightText != "" {
+            rightBarButton = UIBarButtonItem(title: rightText, style: .plain, target: controller, action: Selector(("rightBarPressed:")))
+        } else if rightImage != nil {
+            rightBarButton = UIBarButtonItem(image: rightImage, style: .plain, target: controller, action: Selector(("rightBarPressed:")))
+        }
+
+        controller.navigationItem.leftBarButtonItem = leftBarButton
+        controller.navigationItem.rightBarButtonItem = rightBarButton
+
+    }
 }

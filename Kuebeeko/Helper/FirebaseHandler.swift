@@ -12,13 +12,13 @@ class FirebaseHandler {
     typealias SuccessBlock = (_ success:Bool) -> Void
     
     // MARK:- Auth with firebase
-    class func authenticateUser(_ email:String, password:String , result:@escaping(_ user:User?) -> Void) {
+    class func authenticateUser(_ email:String, password:String , result:@escaping(_ user:User?, _ err:String?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { res, err in
             guard let user = res?.user else {
-                result(nil)
+                result(nil, err?.localizedDescription)
                 return
             }
-            result(user)
+            result(user,nil)
         }
     }
     
