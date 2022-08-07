@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class FirebaseHandler {
-    typealias SuccessBlock = (_ success:Bool) -> Void
+    typealias ResponseBlock = (_ success:Bool, _ err:String?) -> Void
     
     // MARK:- Auth with firebase
     class func authenticateUser(_ email:String, password:String , result:@escaping(_ user:User?, _ err:String?) -> Void) {
@@ -22,19 +22,19 @@ class FirebaseHandler {
         }
     }
     
-    class func createUserInAuth(_ email:String, password:String, result:@escaping(_ user:User?) -> Void){
+    class func createUserInAuth(_ email:String, password:String, result:@escaping(_ user:User?, _ err:String?) -> Void){
         Auth.auth().createUser(withEmail: email, password: password) { res, err in
             guard let user = res?.user else {
-                result(nil)
+                result(nil, err?.localizedDescription)
                 return
             }
-            result(user)
+            result(user,nil)
         }
     }
     
-    class func resetPassword(_ email:String , result:@escaping SuccessBlock) {
+    class func resetPassword(_ email:String , result:@escaping ResponseBlock) {
         Auth.auth().sendPasswordReset(withEmail: email) { err in
-            result(err == nil)
+            result(err == nil, err?.localizedDescription)
         }
     }
     

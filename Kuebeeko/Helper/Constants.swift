@@ -10,6 +10,9 @@ import UIKit
 struct Messages {
     static let invalidEmailPassword = "Incorrect Credentials, the email or password is invalid"
     static let commonError = "Something went wrong, please try again later."
+    static let mismatchPwd = "Passwords do not match"
+    static let mismatchEmail = "Please make sure emails are the same"
+    static let invalidEmail = "Please enter an valid email address"
     
 }
 

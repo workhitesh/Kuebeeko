@@ -273,8 +273,102 @@
             </objects>
             <point key="canvasLocation" x="2358" y="747"/>
         </scene>
+        <!--Reset PasswordVC-->
+        <scene sceneID="EkN-TN-Mo5">
+            <objects>
+                <viewController storyboardIdentifier="ResetPasswordVC" id="fPc-xc-rpG" customClass="ResetPasswordVC" customModule="Kuebeeko" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2C5-8J-uE2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k_app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8Vu-FF-M1q">
+                                <rect key="frame" x="92" y="114" width="230" height="185"/>
+                                <color key="backgroundColor" red="0.83110364960000005" green="0.83910597750000004" blue="0.82056505489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="oXf-Wh-1Wb"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcC-T0-utI">
+                                <rect key="frame" x="40" y="357" width="334" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="ReQ-Gr-geR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGx-CP-5Yb">
+                                <rect key="frame" x="40" y="412" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="we will send you an email with instructions to reset your password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHY-wx-yoh">
+                                <rect key="frame" x="40" y="486" width="334" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-AS-l6i" customClass="DesignableButton" customModule="Kuebeeko" customModuleProvider="target">
+                                <rect key="frame" x="109" y="580" width="196" height="58"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="1Hp-DI-sbw"/>
+                                    <constraint firstAttribute="height" constant="58" id="ItK-iJ-c84"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirm">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="29"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmPressed:" destination="fPc-xc-rpG" eventType="touchUpInside" id="NtD-bl-ktY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GVt-y4-vkx"/>
+                        <color key="backgroundColor" red="0.83110364960000005" green="0.83910597750000004" blue="0.82056505489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Vu-FF-M1q" firstAttribute="top" secondItem="GVt-y4-vkx" secondAttribute="top" constant="70" id="0SG-Uj-vUG"/>
+                            <constraint firstItem="vcC-T0-utI" firstAttribute="leading" secondItem="GVt-y4-vkx" secondAttribute="leading" constant="40" id="52j-gK-h9U"/>
+                            <constraint firstItem="KMP-AS-l6i" firstAttribute="top" secondItem="qHY-wx-yoh" secondAttribute="bottom" constant="53" id="7sM-pe-v9z"/>
+                            <constraint firstItem="qHY-wx-yoh" firstAttribute="leading" secondItem="GVt-y4-vkx" secondAttribute="leading" constant="40" id="Gdf-5j-Bar"/>
+                            <constraint firstItem="aGx-CP-5Yb" firstAttribute="width" secondItem="vcC-T0-utI" secondAttribute="width" id="H3L-VL-8v8"/>
+                            <constraint firstItem="aGx-CP-5Yb" firstAttribute="leading" secondItem="vcC-T0-utI" secondAttribute="leading" id="PbQ-1d-MMB"/>
+                            <constraint firstItem="qHY-wx-yoh" firstAttribute="centerX" secondItem="2C5-8J-uE2" secondAttribute="centerX" id="Sk0-gf-Waf"/>
+                            <constraint firstItem="8Vu-FF-M1q" firstAttribute="centerX" secondItem="2C5-8J-uE2" secondAttribute="centerX" id="VCL-07-WrR"/>
+                            <constraint firstItem="aGx-CP-5Yb" firstAttribute="top" secondItem="vcC-T0-utI" secondAttribute="bottom" constant="21" id="ZGE-4U-Jiz"/>
+                            <constraint firstItem="8Vu-FF-M1q" firstAttribute="width" secondItem="8Vu-FF-M1q" secondAttribute="height" multiplier="739:595" id="caq-Ze-an9"/>
+                            <constraint firstItem="vcC-T0-utI" firstAttribute="centerX" secondItem="2C5-8J-uE2" secondAttribute="centerX" id="gNP-CT-ktV"/>
+                            <constraint firstItem="KMP-AS-l6i" firstAttribute="centerX" secondItem="qHY-wx-yoh" secondAttribute="centerX" id="l0N-07-gdo"/>
+                            <constraint firstItem="aGx-CP-5Yb" firstAttribute="height" secondItem="vcC-T0-utI" secondAttribute="height" id="nKe-N7-RcZ"/>
+                            <constraint firstItem="qHY-wx-yoh" firstAttribute="top" secondItem="aGx-CP-5Yb" secondAttribute="bottom" constant="40" id="nke-em-Aez"/>
+                            <constraint firstItem="vcC-T0-utI" firstAttribute="top" secondItem="8Vu-FF-M1q" secondAttribute="bottom" constant="58" id="vWC-Fw-By6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tfConfirmEmail" destination="aGx-CP-5Yb" id="dN2-Va-cYS"/>
+                        <outlet property="tfEmail" destination="vcC-T0-utI" id="H5d-Xp-Hg1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E1o-sn-fj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039" y="66"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="KMP-AS-l6i">
+            <size key="intrinsicContentSize" width="94.5" height="38"/>
+        </designable>
         <designable name="SnK-Gp-oRp">
             <size key="intrinsicContentSize" width="90.5" height="38"/>
         </designable>

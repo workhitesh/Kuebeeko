@@ -27,33 +27,24 @@ class SignUpVC: UIViewController {
     
     // MARK:- Fxns
     fileprivate func setupUI(){
-        
+        self.navigationItem.title = "Sign Up"
     }
     
     
     fileprivate func createUser(_ email:String, password:String){
         Utility.showLoader()
-        /*
-        FirebaseHandler.createUserInAuth(email, password: password) { user in
+        
+        FirebaseHandler.createUserInAuth(email, password: password) { (user,err) in
             
             guard let user = user else {
                 Utility.hideLoader()
-                Utility.showAlert(with: Messages.commonErrorMessage, on: self)
+                Utility.showAlert(with: err ?? Messages.commonError, on: self)
                 return
             }
             
-            let userM = UserModel(id: user.uid, email: email, firstName: "", lastName: "", gender: nil, profilePicture: "", userType: .user, favProperties: nil)
-            FirebaseHandler.setDocument(path: "/users/\(user.uid)", object: userM) { error in
-                Utility.hideLoader()
-                if let err = error {
-                    print(err)
-                } else {
-                    print("created user")
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SetHome"), object: nil)
-                }
-            }
+            Utility.showAlert(with: "User created successfully", on: self)
         }
-        */
+        
     }
     
     
@@ -63,7 +54,7 @@ class SignUpVC: UIViewController {
             if tfPwd.text == tfConfirmPwd.text {
                 createUser(tfEmail.text ?? "", password: tfPwd.text ?? "")
             } else {
-//                Utility.showAlert(with: Messages.commonErrorMessage, on: self)
+                Utility.showAlert(with: Messages.mismatchPwd, on: self)
             }
             
         } else {

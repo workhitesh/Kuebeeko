@@ -36,6 +36,7 @@ class LoginVC: UIViewController {
                 if let user = user {
                     // successfull validation
                     print("successfull validation : \(user)")
+                    Utility.showAlert(with: "Validation successfull", on: self)
                     
                 } else {
                     Utility.showAlert(with: err ?? Messages.commonError, on: self)
@@ -54,6 +55,7 @@ class LoginVC: UIViewController {
                 if let user = user {
                     // successfull validation
                     print("successfull validation : \(user)")
+                    Utility.showAlert(with: "Validation successfull", on: self)
 //                    self.getUserInfo(user.uid,verifyAdmin: true)
                 } else {
                     Utility.showAlert(with: err ?? Messages.commonError, on: self)
@@ -72,10 +74,10 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func forgotPwdPressed(_ sender: UIButton) {
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: ResetPasswordVC.identifier) as? ResetPasswordVC else {
-//            return
-//        }
-//        navigationController?.pushViewController(vc, animated: true)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: ResetPasswordVC.identifier) as? ResetPasswordVC else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
