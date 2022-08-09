@@ -19,7 +19,6 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
     

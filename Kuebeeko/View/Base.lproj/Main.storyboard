@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -179,6 +180,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LqL-eA-GEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1447.8260869565217" y="65.625"/>
+        </scene>
+        <!--DashboardVC-->
+        <scene sceneID="qbi-kc-SvO">
+            <objects>
+                <viewController storyboardIdentifier="DashboardVC" id="YIK-lp-bJa" customClass="DashboardVC" customModule="Kuebeeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tpf-8O-VTx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdN-45-urW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search Tutors" translatesAutoresizingMaskIntoConstraints="NO" id="Qy7-Mg-pvf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-yH-ycd">
+                                        <rect key="frame" x="0.0" y="51" width="414" height="801"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="YIK-lp-bJa" id="K4T-gC-oR9"/>
+                                            <outlet property="delegate" destination="YIK-lp-bJa" id="nBS-45-IhW"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z7-qU-SQ2" customClass="DesignableButton" customModule="Kuebeeko" customModuleProvider="target">
+                                        <rect key="frame" x="304" y="692" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="Pec-Lg-rFw"/>
+                                            <constraint firstAttribute="width" secondItem="8z7-qU-SQ2" secondAttribute="height" multiplier="1:1" id="uj7-9Z-v39"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="add_icon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="pressedAddAdmin" destination="YIK-lp-bJa" eventType="touchUpInside" id="t5Z-gl-rvk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7fp-yH-ycd" firstAttribute="leading" secondItem="kdN-45-urW" secondAttribute="leading" id="1kJ-v8-Rni"/>
+                                    <constraint firstAttribute="bottom" secondItem="7fp-yH-ycd" secondAttribute="bottom" id="4d5-q2-MFT"/>
+                                    <constraint firstAttribute="bottom" secondItem="8z7-qU-SQ2" secondAttribute="bottom" constant="70" id="8Gc-va-1aG"/>
+                                    <constraint firstItem="7fp-yH-ycd" firstAttribute="top" secondItem="Qy7-Mg-pvf" secondAttribute="bottom" id="T0I-U0-AEz"/>
+                                    <constraint firstAttribute="trailing" secondItem="8z7-qU-SQ2" secondAttribute="trailing" constant="20" id="Zb3-ve-ylU"/>
+                                    <constraint firstAttribute="trailing" secondItem="7fp-yH-ycd" secondAttribute="trailing" id="cfc-tH-3Pf"/>
+                                    <constraint firstItem="Qy7-Mg-pvf" firstAttribute="leading" secondItem="kdN-45-urW" secondAttribute="leading" id="x06-LN-7UH"/>
+                                    <constraint firstItem="Qy7-Mg-pvf" firstAttribute="top" secondItem="kdN-45-urW" secondAttribute="top" id="xGX-NW-vOb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qy7-Mg-pvf" secondAttribute="trailing" id="zSW-MG-4N8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bW6-CG-RgJ"/>
+                        <color key="backgroundColor" red="0.83110364960000005" green="0.83910597750000004" blue="0.82056505489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bW6-CG-RgJ" firstAttribute="trailing" secondItem="kdN-45-urW" secondAttribute="trailing" id="Kcj-UB-UIP"/>
+                            <constraint firstItem="kdN-45-urW" firstAttribute="leading" secondItem="bW6-CG-RgJ" secondAttribute="leading" id="QXe-eP-xCK"/>
+                            <constraint firstItem="kdN-45-urW" firstAttribute="top" secondItem="bW6-CG-RgJ" secondAttribute="top" id="ajB-sg-Dqu"/>
+                            <constraint firstAttribute="bottom" secondItem="kdN-45-urW" secondAttribute="bottom" id="jfG-pw-y1u"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Qy7-Mg-pvf" id="qOU-gr-102"/>
+                        <outlet property="tblView" destination="7fp-yH-ycd" id="4Bt-uS-kNX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXq-Gl-x6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560.8695652173915" y="746.65178571428567"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="0b6-ic-qSx">
@@ -366,6 +440,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="8z7-qU-SQ2">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
         <designable name="KMP-AS-l6i">
             <size key="intrinsicContentSize" width="94.5" height="38"/>
         </designable>
@@ -383,6 +460,10 @@
         </designable>
     </designables>
     <resources>
+        <image name="add_icon" width="60" height="60"/>
         <image name="k_app_icon" width="1024" height="1024"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

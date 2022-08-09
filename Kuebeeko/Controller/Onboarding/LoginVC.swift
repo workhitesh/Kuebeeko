@@ -55,8 +55,10 @@ class LoginVC: UIViewController {
                 if let user = user {
                     // successfull validation
                     print("successfull validation : \(user)")
-                    Utility.showAlert(with: "Validation successfull", on: self)
-//                    self.getUserInfo(user.uid,verifyAdmin: true)
+                    guard let vc = self.storyboard?.instantiateViewController(withIdentifier: DashboardVC.identifier) as? DashboardVC else {
+                        return
+                    }
+                    self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     Utility.showAlert(with: err ?? Messages.commonError, on: self)
                 }

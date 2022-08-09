@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="TutorCell" selectionStyle="default" indentationWidth="10" rowHeight="134" id="KGk-i7-Jjw" customClass="TutorCell" customModule="Kuebeeko" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="134"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="134"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-Ry-8gI" customClass="DesignableView" customModule="Kuebeeko" customModuleProvider="target">
+                        <rect key="frame" x="7" y="7" width="348" height="120"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kroos_demo" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-DA-cbl" customClass="DesignableImageView" customModule="Kuebeeko" customModuleProvider="target">
+                                <rect key="frame" x="10" y="15" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="m6F-dA-mC8"/>
+                                    <constraint firstAttribute="width" secondItem="IDC-DA-cbl" secondAttribute="height" multiplier="1:1" id="uNJ-JI-WAS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCg-61-GNX">
+                                <rect key="frame" x="120" y="15" width="208" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="jcs-FL-UYP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcC-t5-kBM">
+                                <rect key="frame" x="120" y="48" width="208" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Dr7-uO-jd9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="0.0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZcC-t5-kBM" firstAttribute="top" secondItem="qCg-61-GNX" secondAttribute="bottom" constant="8" symbolic="YES" id="0QV-J8-v3A"/>
+                            <constraint firstItem="ZcC-t5-kBM" firstAttribute="width" secondItem="qCg-61-GNX" secondAttribute="width" id="Idf-PM-TXK"/>
+                            <constraint firstItem="IDC-DA-cbl" firstAttribute="centerY" secondItem="U9c-Ry-8gI" secondAttribute="centerY" id="NpD-4S-JVE"/>
+                            <constraint firstItem="ZcC-t5-kBM" firstAttribute="height" secondItem="qCg-61-GNX" secondAttribute="height" id="P1j-T3-oa9"/>
+                            <constraint firstItem="IDC-DA-cbl" firstAttribute="leading" secondItem="U9c-Ry-8gI" secondAttribute="leading" constant="10" id="Po5-6l-kJM"/>
+                            <constraint firstItem="ZcC-t5-kBM" firstAttribute="leading" secondItem="qCg-61-GNX" secondAttribute="leading" id="QCM-BQ-DhN"/>
+                            <constraint firstItem="qCg-61-GNX" firstAttribute="leading" secondItem="IDC-DA-cbl" secondAttribute="trailing" constant="20" id="XmU-gP-DnM"/>
+                            <constraint firstItem="qCg-61-GNX" firstAttribute="top" secondItem="IDC-DA-cbl" secondAttribute="top" id="hNf-zW-X1w"/>
+                            <constraint firstAttribute="trailing" secondItem="qCg-61-GNX" secondAttribute="trailing" constant="20" id="yGf-FS-yxS"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.83110364960000005" green="0.83910597750000004" blue="0.82056505489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="U9c-Ry-8gI" secondAttribute="trailing" constant="7" id="0II-jf-oTL"/>
+                    <constraint firstItem="U9c-Ry-8gI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="6Fl-LQ-y8h"/>
+                    <constraint firstAttribute="bottom" secondItem="U9c-Ry-8gI" secondAttribute="bottom" constant="7" id="7YK-5O-skC"/>
+                    <constraint firstItem="U9c-Ry-8gI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="K7m-Ph-NOZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgProfile" destination="IDC-DA-cbl" id="LHE-iR-MyV"/>
+                <outlet property="lblEmail" destination="ZcC-t5-kBM" id="NwK-wd-AXL"/>
+                <outlet property="lblName" destination="qCg-61-GNX" id="tN5-IA-25V"/>
+            </connections>
+            <point key="canvasLocation" x="168.11594202898553" y="91.741071428571431"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="IDC-DA-cbl">
+            <size key="intrinsicContentSize" width="1080" height="1440"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="kroos_demo" width="1080" height="1440"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

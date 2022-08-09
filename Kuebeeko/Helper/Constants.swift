@@ -43,3 +43,5 @@ enum UserDefaultKeys {
 }
 
 let APPNAME = "Kuebeeko"
+
+var userModel:UserModel?

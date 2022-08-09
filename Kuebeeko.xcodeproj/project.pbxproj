@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6705159628A3029B00899A56 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705159528A3029B00899A56 /* DashboardVC.swift */; };
+		6705159828A3032400899A56 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705159728A3032400899A56 /* UserModel.swift */; };
+		6705159A28A315C900899A56 /* TutorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705159928A315C900899A56 /* TutorModel.swift */; };
+		6705159D28A3162F00899A56 /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705159B28A3162F00899A56 /* TutorCell.swift */; };
+		6705159E28A3162F00899A56 /* TutorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6705159C28A3162F00899A56 /* TutorCell.xib */; };
 		671ECC19289F1B9600C768D1 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671ECC18289F1B9500C768D1 /* SignUpVC.swift */; };
 		6781F4F728A044260089382C /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DC28A044260089382C /* IQTextView.swift */; };
 		6781F4F828A044260089382C /* IQKeyboardManager+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DD28A044260089382C /* IQKeyboardManager+Internal.swift */; };
@@ -74,6 +79,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6705159528A3029B00899A56 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		6705159728A3032400899A56 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		6705159928A315C900899A56 /* TutorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorModel.swift; sourceTree = "<group>"; };
+		6705159B28A3162F00899A56 /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
+		6705159C28A3162F00899A56 /* TutorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorCell.xib; sourceTree = "<group>"; };
 		671ECC18289F1B9500C768D1 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		6781F4DC28A044260089382C /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
 		6781F4DD28A044260089382C /* IQKeyboardManager+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+Internal.swift"; sourceTree = "<group>"; };
@@ -153,6 +163,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6705159328A3025C00899A56 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				67A7AFAA28A03DF30028CB4F /* ResetPasswordVC.swift */,
+				671ECC18289F1B9500C768D1 /* SignUpVC.swift */,
+				67B55F51289F11010083F5C9 /* LoginVC.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6705159428A3027A00899A56 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				6705159528A3029B00899A56 /* DashboardVC.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		6781F4DA28A044260089382C /* IQKeyboardManagerSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +312,8 @@
 		67B55F32289F02F90083F5C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6705159728A3032400899A56 /* UserModel.swift */,
+				6705159928A315C900899A56 /* TutorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +323,8 @@
 			children = (
 				67B55F04289F02C80083F5C9 /* Main.storyboard */,
 				67B55F0C289F02CA0083F5C9 /* LaunchScreen.storyboard */,
+				6705159B28A3162F00899A56 /* TutorCell.swift */,
+				6705159C28A3162F00899A56 /* TutorCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,10 +332,9 @@
 		67B55F34289F03060083F5C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				67A7AFAA28A03DF30028CB4F /* ResetPasswordVC.swift */,
+				6705159428A3027A00899A56 /* Dashboard */,
+				6705159328A3025C00899A56 /* Onboarding */,
 				67B55F02289F02C80083F5C9 /* ViewController.swift */,
-				671ECC18289F1B9500C768D1 /* SignUpVC.swift */,
-				67B55F51289F11010083F5C9 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -458,6 +489,7 @@
 			files = (
 				67B55F0E289F02CA0083F5C9 /* LaunchScreen.storyboard in Resources */,
 				67B55F3A289F04DA0083F5C9 /* GoogleService-Info.plist in Resources */,
+				6705159E28A3162F00899A56 /* TutorCell.xib in Resources */,
 				67B55F0B289F02CA0083F5C9 /* Assets.xcassets in Resources */,
 				67B55F06289F02C80083F5C9 /* Main.storyboard in Resources */,
 			);
@@ -491,17 +523,21 @@
 				6781F50C28A044260089382C /* IQNSArray+Sort.swift in Sources */,
 				6781F50428A044260089382C /* IQKeyboardManager.swift in Sources */,
 				67B55F3C289F05710083F5C9 /* FirebaseHandler.swift in Sources */,
+				6705159828A3032400899A56 /* UserModel.swift in Sources */,
 				6781F50A28A044260089382C /* IQUITextFieldView+Additions.swift in Sources */,
 				6781F50D28A044260089382C /* IQKeyboardManager+UITextFieldViewNotification.swift in Sources */,
 				6781F50028A044260089382C /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				6781F50328A044260089382C /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				6781F4FB28A044260089382C /* IQBarButtonItem.swift in Sources */,
 				67B55F43289F08E90083F5C9 /* Validations.swift in Sources */,
+				6705159628A3029B00899A56 /* DashboardVC.swift in Sources */,
 				671ECC19289F1B9600C768D1 /* SignUpVC.swift in Sources */,
+				6705159A28A315C900899A56 /* TutorModel.swift in Sources */,
 				67B55F09289F02C80083F5C9 /* Kuebeeko.xcdatamodeld in Sources */,
 				6781F50528A044260089382C /* IQKeyboardManager+Debug.swift in Sources */,
 				67B55F52289F11010083F5C9 /* LoginVC.swift in Sources */,
 				6781F50728A044260089382C /* IQKeyboardManager+Toolbar.swift in Sources */,
+				6705159D28A3162F00899A56 /* TutorCell.swift in Sources */,
 				6781F4FD28A044260089382C /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				6781F4FE28A044260089382C /* IQInvocation.swift in Sources */,
 				67B55F03289F02C80083F5C9 /* ViewController.swift in Sources */,
