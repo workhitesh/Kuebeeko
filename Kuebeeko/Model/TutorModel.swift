@@ -14,4 +14,7 @@ struct TutorModel : Codable {
     let phone:String?
     let image:String?
     let userType:UserType
+    let overallRating:Double? // out of 5 stars
+    let subjectId:String?
+    let bio:String?
 }

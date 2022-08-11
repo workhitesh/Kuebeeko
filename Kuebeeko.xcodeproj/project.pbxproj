@@ -12,7 +12,11 @@
 		6705159A28A315C900899A56 /* TutorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705159928A315C900899A56 /* TutorModel.swift */; };
 		6705159D28A3162F00899A56 /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705159B28A3162F00899A56 /* TutorCell.swift */; };
 		6705159E28A3162F00899A56 /* TutorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6705159C28A3162F00899A56 /* TutorCell.xib */; };
+		670515A128A46C4700899A56 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 670515A028A46C4700899A56 /* Alamofire */; };
 		671ECC19289F1B9600C768D1 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671ECC18289F1B9500C768D1 /* SignUpVC.swift */; };
+		672174F328A5662000977FC1 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672174F228A5662000977FC1 /* CosmosDistrib.swift */; };
+		672174F628A56AF700977FC1 /* TutorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672174F528A56AF700977FC1 /* TutorDetailVC.swift */; };
+		672174F828A56B1800977FC1 /* AddTutorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672174F728A56B1800977FC1 /* AddTutorVC.swift */; };
 		6781F4F728A044260089382C /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DC28A044260089382C /* IQTextView.swift */; };
 		6781F4F828A044260089382C /* IQKeyboardManager+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DD28A044260089382C /* IQKeyboardManager+Internal.swift */; };
 		6781F4F928A044260089382C /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DF28A044260089382C /* IQPreviousNextView.swift */; };
@@ -85,6 +89,9 @@
 		6705159B28A3162F00899A56 /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
 		6705159C28A3162F00899A56 /* TutorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorCell.xib; sourceTree = "<group>"; };
 		671ECC18289F1B9500C768D1 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		672174F228A5662000977FC1 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		672174F528A56AF700977FC1 /* TutorDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDetailVC.swift; sourceTree = "<group>"; };
+		672174F728A56B1800977FC1 /* AddTutorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTutorVC.swift; sourceTree = "<group>"; };
 		6781F4DC28A044260089382C /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
 		6781F4DD28A044260089382C /* IQKeyboardManager+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+Internal.swift"; sourceTree = "<group>"; };
 		6781F4DF28A044260089382C /* IQPreviousNextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPreviousNextView.swift; sourceTree = "<group>"; };
@@ -141,6 +148,7 @@
 				67B55F49289F0DD20083F5C9 /* FirebaseAnalyticsSwift in Frameworks */,
 				67B55F4D289F0DD20083F5C9 /* FirebaseCrashlytics in Frameworks */,
 				67B55F4F289F0DD20083F5C9 /* FirebaseMessaging in Frameworks */,
+				670515A128A46C4700899A56 /* Alamofire in Frameworks */,
 				67B55F4B289F0DD20083F5C9 /* FirebaseAuth in Frameworks */,
 				67B55F47289F0DD20083F5C9 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -179,6 +187,15 @@
 				6705159528A3029B00899A56 /* DashboardVC.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		672174F428A56ADD00977FC1 /* Tutor */ = {
+			isa = PBXGroup;
+			children = (
+				672174F528A56AF700977FC1 /* TutorDetailVC.swift */,
+				672174F728A56B1800977FC1 /* AddTutorVC.swift */,
+			);
+			path = Tutor;
 			sourceTree = "<group>";
 		};
 		6781F4DA28A044260089382C /* IQKeyboardManagerSwift */ = {
@@ -332,6 +349,7 @@
 		67B55F34289F03060083F5C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				672174F428A56ADD00977FC1 /* Tutor */,
 				6705159428A3027A00899A56 /* Dashboard */,
 				6705159328A3025C00899A56 /* Onboarding */,
 				67B55F02289F02C80083F5C9 /* ViewController.swift */,
@@ -353,6 +371,7 @@
 		67B55F36289F031A0083F5C9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				672174F228A5662000977FC1 /* CosmosDistrib.swift */,
 				6781F4DA28A044260089382C /* IQKeyboardManagerSwift */,
 			);
 			path = Libraries;
@@ -395,6 +414,7 @@
 				67B55F4A289F0DD20083F5C9 /* FirebaseAuth */,
 				67B55F4C289F0DD20083F5C9 /* FirebaseCrashlytics */,
 				67B55F4E289F0DD20083F5C9 /* FirebaseMessaging */,
+				670515A028A46C4700899A56 /* Alamofire */,
 			);
 			productName = Kuebeeko;
 			productReference = 67B55EFB289F02C80083F5C9 /* Kuebeeko.app */;
@@ -470,6 +490,7 @@
 			mainGroup = 67B55EF2289F02C70083F5C9;
 			packageReferences = (
 				67B55F45289F0DD20083F5C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6705159F28A46C4600899A56 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 67B55EFC289F02C80083F5C9 /* Products */;
 			projectDirPath = "";
@@ -519,6 +540,7 @@
 				6781F50128A044260089382C /* IQKeyboardManagerConstants.swift in Sources */,
 				67B55F42289F08E90083F5C9 /* Utility.swift in Sources */,
 				6781F50228A044260089382C /* IQKeyboardManager+Position.swift in Sources */,
+				672174F328A5662000977FC1 /* CosmosDistrib.swift in Sources */,
 				6781F4FA28A044260089382C /* IQTitleBarButtonItem.swift in Sources */,
 				6781F50C28A044260089382C /* IQNSArray+Sort.swift in Sources */,
 				6781F50428A044260089382C /* IQKeyboardManager.swift in Sources */,
@@ -540,6 +562,7 @@
 				6705159D28A3162F00899A56 /* TutorCell.swift in Sources */,
 				6781F4FD28A044260089382C /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				6781F4FE28A044260089382C /* IQInvocation.swift in Sources */,
+				672174F828A56B1800977FC1 /* AddTutorVC.swift in Sources */,
 				67B55F03289F02C80083F5C9 /* ViewController.swift in Sources */,
 				67B55F3E289F08DB0083F5C9 /* Design.swift in Sources */,
 				6781F50628A044260089382C /* IQKeyboardManager+OrientationNotification.swift in Sources */,
@@ -554,6 +577,7 @@
 				6781F4FF28A044260089382C /* IQKeyboardManager+UIKeyboardNotification.swift in Sources */,
 				6781F4F828A044260089382C /* IQKeyboardManager+Internal.swift in Sources */,
 				67A7AFAB28A03DF30028CB4F /* ResetPasswordVC.swift in Sources */,
+				672174F628A56AF700977FC1 /* TutorDetailVC.swift in Sources */,
 				6781F4FC28A044260089382C /* IQToolbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,6 +926,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6705159F28A46C4600899A56 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		67B55F45289F0DD20083F5C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -913,6 +945,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		670515A028A46C4700899A56 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6705159F28A46C4600899A56 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		67B55F46289F0DD20083F5C9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 67B55F45289F0DD20083F5C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

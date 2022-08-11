@@ -51,6 +51,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ml7-p9-mTF" customClass="CosmosView" customModule="Kuebeeko" customModuleProvider="target">
+                                <rect key="frame" x="120" y="81" width="150" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="D8m-TM-KaZ"/>
+                                    <constraint firstAttribute="width" constant="150" id="ugb-l2-Hum"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -60,8 +73,10 @@
                             <constraint firstItem="ZcC-t5-kBM" firstAttribute="height" secondItem="qCg-61-GNX" secondAttribute="height" id="P1j-T3-oa9"/>
                             <constraint firstItem="IDC-DA-cbl" firstAttribute="leading" secondItem="U9c-Ry-8gI" secondAttribute="leading" constant="10" id="Po5-6l-kJM"/>
                             <constraint firstItem="ZcC-t5-kBM" firstAttribute="leading" secondItem="qCg-61-GNX" secondAttribute="leading" id="QCM-BQ-DhN"/>
+                            <constraint firstItem="Ml7-p9-mTF" firstAttribute="top" secondItem="ZcC-t5-kBM" secondAttribute="bottom" constant="8" symbolic="YES" id="Ul5-nn-QQT"/>
                             <constraint firstItem="qCg-61-GNX" firstAttribute="leading" secondItem="IDC-DA-cbl" secondAttribute="trailing" constant="20" id="XmU-gP-DnM"/>
                             <constraint firstItem="qCg-61-GNX" firstAttribute="top" secondItem="IDC-DA-cbl" secondAttribute="top" id="hNf-zW-X1w"/>
+                            <constraint firstItem="Ml7-p9-mTF" firstAttribute="leading" secondItem="ZcC-t5-kBM" secondAttribute="leading" id="lEf-qY-WUW"/>
                             <constraint firstAttribute="trailing" secondItem="qCg-61-GNX" secondAttribute="trailing" constant="20" id="yGf-FS-yxS"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -84,6 +99,7 @@
                 <outlet property="imgProfile" destination="IDC-DA-cbl" id="LHE-iR-MyV"/>
                 <outlet property="lblEmail" destination="ZcC-t5-kBM" id="NwK-wd-AXL"/>
                 <outlet property="lblName" destination="qCg-61-GNX" id="tN5-IA-25V"/>
+                <outlet property="viewRating" destination="Ml7-p9-mTF" id="uK9-aH-jaa"/>
             </connections>
             <point key="canvasLocation" x="168.11594202898553" y="91.741071428571431"/>
         </tableViewCell>

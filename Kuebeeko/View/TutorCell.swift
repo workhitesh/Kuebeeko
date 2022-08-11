@@ -13,11 +13,13 @@ class TutorCell: UITableViewCell {
     @IBOutlet weak var imgProfile: DesignableImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var viewRating:CosmosView!
     
     var tutor:TutorModel! {
         didSet {
             lblName.text = tutor.name
             lblEmail.text = tutor.email
+            viewRating.rating = tutor.overallRating ?? 0.0
         }
     }
     

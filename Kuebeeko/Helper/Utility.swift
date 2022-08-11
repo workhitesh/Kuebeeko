@@ -97,4 +97,18 @@ class Utility {
         controller.navigationItem.rightBarButtonItem = rightBarButton
 
     }
+    
+    class func openEmailComposer(_ address:String){
+        let appURL = URL(string: "mailto:\(address)")!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(appURL)
+        }
+    }
+    
+    class func callNumber(_ number:String){
+        guard let number = URL(string: "tel://" + number) else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
 }
