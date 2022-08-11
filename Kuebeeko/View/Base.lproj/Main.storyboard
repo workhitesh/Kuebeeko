@@ -783,6 +783,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="viewReviewsPressed:" destination="uTQ-t0-68v" eventType="touchUpInside" id="1x2-kD-9lk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -824,6 +827,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmQ-fh-oIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3802.898550724638" y="746.65178571428567"/>
+        </scene>
+        <!--View RatingsVC-->
+        <scene sceneID="6PK-W1-xv8">
+            <objects>
+                <viewController storyboardIdentifier="ViewRatingsVC" id="fqX-se-VN0" customClass="ViewRatingsVC" customModule="Kuebeeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zf2-6P-KvH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="oUM-rB-3pB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Rating (L to H)"/>
+                                    <segment title="Rating (H to L)"/>
+                                    <segment title="Recent"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zf7-N2-44n">
+                                <rect key="frame" x="0.0" y="75" width="414" height="787"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fqX-se-VN0" id="awD-T1-MTd"/>
+                                    <outlet property="delegate" destination="fqX-se-VN0" id="y5X-CM-Q9i"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RRy-3z-TBp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oUM-rB-3pB" firstAttribute="top" secondItem="RRy-3z-TBp" secondAttribute="top" id="2HK-5w-NGa"/>
+                            <constraint firstItem="RRy-3z-TBp" firstAttribute="trailing" secondItem="zf7-N2-44n" secondAttribute="trailing" id="7KC-j3-rf1"/>
+                            <constraint firstItem="RRy-3z-TBp" firstAttribute="trailing" secondItem="oUM-rB-3pB" secondAttribute="trailing" id="OYH-no-bJ7"/>
+                            <constraint firstItem="zf7-N2-44n" firstAttribute="top" secondItem="oUM-rB-3pB" secondAttribute="bottom" id="RTM-Qs-oxW"/>
+                            <constraint firstItem="zf7-N2-44n" firstAttribute="leading" secondItem="RRy-3z-TBp" secondAttribute="leading" id="ToR-3M-rEs"/>
+                            <constraint firstItem="oUM-rB-3pB" firstAttribute="leading" secondItem="RRy-3z-TBp" secondAttribute="leading" id="WQH-mH-bXT"/>
+                            <constraint firstItem="RRy-3z-TBp" firstAttribute="bottom" secondItem="zf7-N2-44n" secondAttribute="bottom" id="Xf8-vN-HmX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sgmntSort" destination="oUM-rB-3pB" id="20b-EY-nOu"/>
+                        <outlet property="tblView" destination="zf7-N2-44n" id="X9r-xs-vfx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KBn-vi-ZM0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4484" y="747"/>
         </scene>
         <!--Reset PasswordVC-->
         <scene sceneID="EkN-TN-Mo5">

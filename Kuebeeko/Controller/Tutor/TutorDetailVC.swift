@@ -53,6 +53,12 @@ class TutorDetailVC: UIViewController {
         alertVC.addAction(cancel)
         present(alertVC, animated: true, completion: nil)
     }
+    @IBAction func viewReviewsPressed(_ sender:UIButton){
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewRatingsVC.identifier) as? ViewRatingsVC else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
