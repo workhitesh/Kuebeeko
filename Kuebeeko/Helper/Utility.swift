@@ -32,14 +32,6 @@ class Utility {
         controller.present(alertVC, animated: true, completion: nil)
     }
     
-    class func showLoader(){
-//        SVProgressHUD.show()
-    }
-    
-    class func hideLoader(){
-//        SVProgressHUD.dismiss()
-    }
-    
     class func saveUD(_ value:Any?, key:String) {
         UserDefaults.standard.set(value, forKey: key)
         UserDefaults.standard.synchronize()
@@ -110,5 +102,26 @@ class Utility {
     class func callNumber(_ number:String){
         guard let number = URL(string: "tel://" + number) else { return }
         UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
+    
+    class func showLoader(on:UIViewController){
+        let loader = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        loader.frame.origin.x = on.view.center.x - 20
+        loader.frame.origin.y = on.view.center.y - 20
+        loader.style = .medium
+        loader.color = Colors.appTheme
+        loader.tag = 999
+        loader.hidesWhenStopped = true
+        on.view.addSubview(loader)
+        loader.startAnimating()
+    }
+    
+    class func hideLoader(from:UIViewController){
+        for case let loader as UIActivityIndicatorView in from.view.subviews {
+            if loader.tag == 999 {
+                loader.stopAnimating()
+                loader.removeFromSuperview()
+            }
+        }
     }
 }

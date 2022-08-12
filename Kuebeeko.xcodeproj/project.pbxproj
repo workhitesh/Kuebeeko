@@ -67,6 +67,7 @@
 		67B55F4D289F0DD20083F5C9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 67B55F4C289F0DD20083F5C9 /* FirebaseCrashlytics */; };
 		67B55F4F289F0DD20083F5C9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 67B55F4E289F0DD20083F5C9 /* FirebaseMessaging */; };
 		67B55F52289F11010083F5C9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55F51289F11010083F5C9 /* LoginVC.swift */; };
+		67DF972228A6DBF500B74F12 /* Webservices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF972128A6DBF300B74F12 /* Webservices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		67B55F40289F08E90083F5C9 /* Validations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		67B55F41289F08E90083F5C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		67B55F51289F11010083F5C9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		67DF972128A6DBF300B74F12 /* Webservices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 		67B55F35289F03150083F5C9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				67DF972128A6DBF300B74F12 /* Webservices.swift */,
 				67B55F41289F08E90083F5C9 /* Constants.swift */,
 				67B55F3F289F08E90083F5C9 /* Utility.swift */,
 				67B55F40289F08E90083F5C9 /* Validations.swift */,
@@ -566,6 +569,7 @@
 				6781F4FA28A044260089382C /* IQTitleBarButtonItem.swift in Sources */,
 				6781F50C28A044260089382C /* IQNSArray+Sort.swift in Sources */,
 				6781F50428A044260089382C /* IQKeyboardManager.swift in Sources */,
+				67DF972228A6DBF500B74F12 /* Webservices.swift in Sources */,
 				672174FA28A59FF100977FC1 /* ViewRatingsVC.swift in Sources */,
 				67B55F3C289F05710083F5C9 /* FirebaseHandler.swift in Sources */,
 				6705159828A3032400899A56 /* UserModel.swift in Sources */,

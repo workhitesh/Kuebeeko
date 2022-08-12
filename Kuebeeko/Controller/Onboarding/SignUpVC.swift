@@ -31,17 +31,25 @@ class SignUpVC: UIViewController {
     
     
     fileprivate func createUser(_ email:String, password:String){
-        Utility.showLoader()
+        Utility.showLoader(on: self)
         
         FirebaseHandler.createUserInAuth(email, password: password) { (user,err) in
             
-            guard let user = user else {
-                Utility.hideLoader()
+            guard user != nil else {
                 Utility.showAlert(with: err ?? Messages.commonError, on: self)
                 return
             }
             
-            Utility.showAlert(with: "User created successfully", on: self)
+            let params = ["userType":2,"email":email,"image":"","name":""] as [String : Any]
+            Webservices.instance.post(url: API_BASE_URL+"student/create", params: params) { (success, resData , error) in
+                Utility.hideLoader(from: self)
+
+                if success {
+                    Utility.showAlert(with: "Success\nPlease continue to sign in!", on: self)
+                } else {
+                    Utility.showAlert(with: error ?? Messages.commonError, on: self)
+                }
+            }
         }
         
     }

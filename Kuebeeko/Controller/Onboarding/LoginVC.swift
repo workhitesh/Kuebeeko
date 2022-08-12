@@ -36,7 +36,23 @@ class LoginVC: UIViewController {
                 if let user = user {
                     // successfull validation
                     print("successfull validation : \(user)")
-                    Utility.showAlert(with: "Validation successfull", on: self)
+                    
+                    // check if user exists in db
+                    Webservices.instance.get(url: API_BASE_URL+"student/\(self.tfEmail.text ?? "")", params: nil) { success, response, error in
+                        if success {
+                            guard let dict = (response as? NSArray)?[0] as? NSDictionary else {
+                                return
+                            }
+                            Utility.saveUD(true, key: UserDefaultKeys.isLogin)
+                            Utility.saveUD(dict["userType"] as? Int ?? 2, key: UserDefaultKeys.userType)
+                            Utility.saveUD(user.email ?? "", key: UserDefaultKeys.userEmail)
+                            Utility.saveUD(dict["_id"] as? String ?? "", key: UserDefaultKeys.userId)
+                            
+                            print("user auth success and found in db, go to its home")
+                        } else {
+                            Utility.showAlert(with: Messages.userNotFound, on: self)
+                        }
+                    }
                     
                 } else {
                     Utility.showAlert(with: err ?? Messages.commonError, on: self)
@@ -55,10 +71,20 @@ class LoginVC: UIViewController {
                 if let user = user {
                     // successfull validation
                     print("successfull validation : \(user)")
-                    guard let vc = self.storyboard?.instantiateViewController(withIdentifier: DashboardVC.identifier) as? DashboardVC else {
-                        return
+                    
+                    // check if admin
+                    if Admins.contains(user.email ?? "") {
+                        Utility.saveUD(true, key: UserDefaultKeys.isLogin)
+                        Utility.saveUD(0, key: UserDefaultKeys.userType)
+                        Utility.saveUD(user.email ?? "", key: UserDefaultKeys.userEmail)
+                        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: DashboardVC.identifier) as? DashboardVC else {
+                            return
+                        }
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    } else {
+                        Utility.showAlert(with: Messages.notAdmin, on: self)
                     }
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    
                 } else {
                     Utility.showAlert(with: err ?? Messages.commonError, on: self)
                 }

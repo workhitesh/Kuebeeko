@@ -28,9 +28,9 @@ class ResetPasswordVC: UIViewController {
     }
     
     fileprivate func resetPassword(_ email:String) {
-        Utility.showLoader()
+        Utility.showLoader(on: self)
         FirebaseHandler.resetPassword(email) { (success, err) in
-            Utility.hideLoader()
+            Utility.hideLoader(from: self)
             if success {
                 Utility.showAlert(with: "Instructions sent on \(email)", on: self)
             } else {

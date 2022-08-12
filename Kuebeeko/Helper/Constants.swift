@@ -13,6 +13,8 @@ struct Messages {
     static let mismatchPwd = "Passwords do not match"
     static let mismatchEmail = "Please make sure emails are the same"
     static let invalidEmail = "Please enter an valid email address"
+    static let notAdmin = "It seems like you're not an admin of this app"
+    static let userNotFound = "User not found!"
     
 }
 
@@ -45,3 +47,7 @@ enum UserDefaultKeys {
 let APPNAME = "Kuebeeko"
 
 var userModel:UserModel?
+
+let API_BASE_URL = "http://35.160.199.176/"
+
+let Admins = ["admin@ihitesh.com"]
