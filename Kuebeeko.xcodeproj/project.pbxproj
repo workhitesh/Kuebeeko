@@ -21,6 +21,8 @@
 		672174FE28A5A07000977FC1 /* RatingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672174FC28A5A07000977FC1 /* RatingsCell.swift */; };
 		672174FF28A5A07000977FC1 /* RatingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672174FD28A5A07000977FC1 /* RatingsCell.xib */; };
 		6721750128A5A27F00977FC1 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6721750028A5A27F00977FC1 /* RatingModel.swift */; };
+		67593A5B28A84B4E008F72C4 /* TutorDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67593A5A28A84B4E008F72C4 /* TutorDashboardVC.swift */; };
+		67593A5E28A854C3008F72C4 /* StudentDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67593A5D28A854C3008F72C4 /* StudentDashboardVC.swift */; };
 		6781F4F728A044260089382C /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DC28A044260089382C /* IQTextView.swift */; };
 		6781F4F828A044260089382C /* IQKeyboardManager+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DD28A044260089382C /* IQKeyboardManager+Internal.swift */; };
 		6781F4F928A044260089382C /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4DF28A044260089382C /* IQPreviousNextView.swift */; };
@@ -113,6 +115,8 @@
 		672174FC28A5A07000977FC1 /* RatingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCell.swift; sourceTree = "<group>"; };
 		672174FD28A5A07000977FC1 /* RatingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsCell.xib; sourceTree = "<group>"; };
 		6721750028A5A27F00977FC1 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
+		67593A5A28A84B4E008F72C4 /* TutorDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDashboardVC.swift; sourceTree = "<group>"; };
+		67593A5D28A854C3008F72C4 /* StudentDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDashboardVC.swift; sourceTree = "<group>"; };
 		6781F4DC28A044260089382C /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
 		6781F4DD28A044260089382C /* IQKeyboardManager+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+Internal.swift"; sourceTree = "<group>"; };
 		6781F4DF28A044260089382C /* IQPreviousNextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPreviousNextView.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				672174F528A56AF700977FC1 /* TutorDetailVC.swift */,
 				672174F728A56B1800977FC1 /* AddTutorVC.swift */,
 				672174F928A59FF100977FC1 /* ViewRatingsVC.swift */,
+				67593A5A28A84B4E008F72C4 /* TutorDashboardVC.swift */,
 			);
 			path = Tutor;
 			sourceTree = "<group>";
@@ -240,6 +245,14 @@
 				672174FD28A5A07000977FC1 /* RatingsCell.xib */,
 			);
 			path = RatingsCell;
+			sourceTree = "<group>";
+		};
+		67593A5C28A854AE008F72C4 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				67593A5D28A854C3008F72C4 /* StudentDashboardVC.swift */,
+			);
+			path = Student;
 			sourceTree = "<group>";
 		};
 		6781F4DA28A044260089382C /* IQKeyboardManagerSwift */ = {
@@ -396,6 +409,7 @@
 		67B55F34289F03060083F5C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				67593A5C28A854AE008F72C4 /* Student */,
 				672174F428A56ADD00977FC1 /* Tutor */,
 				6705159428A3027A00899A56 /* Dashboard */,
 				6705159328A3025C00899A56 /* Onboarding */,
@@ -601,9 +615,11 @@
 				6781F50128A044260089382C /* IQKeyboardManagerConstants.swift in Sources */,
 				67B55F42289F08E90083F5C9 /* Utility.swift in Sources */,
 				6781F50228A044260089382C /* IQKeyboardManager+Position.swift in Sources */,
+				67593A5E28A854C3008F72C4 /* StudentDashboardVC.swift in Sources */,
 				6721750128A5A27F00977FC1 /* RatingModel.swift in Sources */,
 				672174F328A5662000977FC1 /* CosmosDistrib.swift in Sources */,
 				6781F4FA28A044260089382C /* IQTitleBarButtonItem.swift in Sources */,
+				67593A5B28A84B4E008F72C4 /* TutorDashboardVC.swift in Sources */,
 				6781F50C28A044260089382C /* IQNSArray+Sort.swift in Sources */,
 				6781F50428A044260089382C /* IQKeyboardManager.swift in Sources */,
 				67DF972228A6DBF500B74F12 /* Webservices.swift in Sources */,

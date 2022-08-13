@@ -19,6 +19,7 @@ struct Messages {
     static let noSubjects = "No subjects found!"
     static let invalidInput = "Invalid input, please check all fields are entered correctly"
     static let delConfirmation = "Are you sure you want to delete?\nThis action is irreversible."
+    static let logoutConfirmation = "Are you sure you want to logout?"
     
 }
 

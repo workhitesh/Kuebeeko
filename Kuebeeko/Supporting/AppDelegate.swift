@@ -39,8 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else if Utility.getUD(UserDefaultKeys.userType) as? Int == 1 {
                 
                 // tutor home
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController  = storyboard.instantiateViewController(withIdentifier: TutorDashboardVC.identifier) as! TutorDashboardVC
+                let nav = UINavigationController(rootViewController: tabBarController)
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.window?.rootViewController = nav
+                appDel.window?.makeKeyAndVisible()
             } else {
                 // student home
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController  = storyboard.instantiateViewController(withIdentifier: StudentDashboardVC.identifier) as! StudentDashboardVC
+                let nav = UINavigationController(rootViewController: tabBarController)
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.window?.rootViewController = nav
+                appDel.window?.makeKeyAndVisible()
             }
         } else {
             // set login as home ( configured from storyboard )

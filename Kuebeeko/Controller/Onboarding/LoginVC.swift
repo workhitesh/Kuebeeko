@@ -68,6 +68,47 @@ class LoginVC: UIViewController {
         }
     }
     
+    @IBAction func loginAsTutor(_ sender: UIButton) {
+        // do validations
+        if Validations.isValidEmail(tfEmail.text ?? "") && Validations.isValidPassword(tfPwd.text ?? "") {
+            // firebase auth call
+            FirebaseHandler.authenticateUser(tfEmail.text ?? "", password: tfPwd.text ?? "") { (user, err) in
+                if let user = user {
+                    // successfull validation
+                    print("successfull validation : \(user)")
+                    
+                    // check if user exists in db
+                    Webservices.instance.get(url: API_BASE_URL+"tutor/\(self.tfEmail.text ?? "")", params: nil) { success, response, error in
+                        if success {
+                            guard let dict = (response as? NSArray)?[0] as? NSDictionary else {
+                                return
+                            }
+                            Utility.saveUD(true, key: UserDefaultKeys.isLogin)
+                            Utility.saveUD(dict["userType"] as? Int ?? 2, key: UserDefaultKeys.userType)
+                            Utility.saveUD(user.email ?? "", key: UserDefaultKeys.userEmail)
+                            Utility.saveUD(dict["_id"] as? String ?? "", key: UserDefaultKeys.userId)
+                            
+                            print("user auth success and found in db, go to its home")
+                            guard let appDel = UIApplication.shared.delegate as? AppDelegate else {
+                                return
+                            }
+                            appDel.setHomeVC()
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SetHome"), object: nil)
+                        } else {
+                            Utility.showAlert(with: Messages.userNotFound, on: self)
+                        }
+                    }
+                    
+                } else {
+                    Utility.showAlert(with: err ?? Messages.commonError, on: self)
+                }
+            }
+        } else {
+            Utility.showAlert(with: Messages.invalidEmailPassword, on: self)
+        }
+    }
+    
+    
     @IBAction func loginAsAdminPressed(_ sender: UIButton) {
         // do validations
         if Validations.isValidEmail(tfEmail.text ?? "") && Validations.isValidPassword(tfPwd.text ?? "") {
