@@ -11,7 +11,6 @@ class DashboardVC: UIViewController {
     static let identifier = "DashboardVC"
     
     //MARK: IBOutlets
-    @IBOutlet private weak var searchBar:UISearchBar!
     @IBOutlet private weak var tblView:UITableView!
     var arrTutorList = [TutorModel]()
     
@@ -20,27 +19,41 @@ class DashboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        tempMakeArr()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getAllTutors()
     }
     
     
     //MARK: Fxns
-    fileprivate func tempMakeArr(){
-        let tutor = TutorModel(id: "1", name: "Toni Kroos", email: "toni@tk.de", phone: "+49 11568668267", image: nil, userType: .tutor, overallRating: 3.4, subjectId: nil, bio:nil)
-        let tutor1 = TutorModel(id: "2", name: "Luka Modric", email: "modric@lm.cr", phone: "+34 87646734", image: nil, userType: .tutor, overallRating: 4.0, subjectId: nil, bio:nil)
-        arrTutorList.append(tutor)
-        arrTutorList.append(tutor1)
-        tblView.reloadData()
+    fileprivate func getAllTutors(){
+        Utility.showLoader(on: self)
+        arrTutorList.removeAll()
+        Webservices.instance.get(url: API_BASE_URL+"tutor", params: nil) { success, response, error in
+            Utility.hideLoader(from: self)
+            if success {
+                if let tutors = response as? NSArray {
+                    for i in 0..<tutors.count {
+                        if let tut = tutors[i] as? NSDictionary {
+                            let objTut = TutorModel(_id: tut["_id"] as? String ?? "", name: tut["name"] as? String ?? "", email: tut["email"] as? String ?? "", phone: tut["phone"] as? Int64 ?? 0, image: tut["image"] as? String ?? "", userType: .tutor, overallRating: tut["overallRating"] as? Double ?? 0.0, subjectId: tut["subjectId"] as? String ?? "", bio: tut["bio"] as? String ?? "")
+                            self.arrTutorList.append(objTut)
+                        }
+                    }
+                    self.tblView.reloadData()
+                } else {
+                    Utility.showAlert(with: Messages.noTutors, on: self)
+                }
+            } else {
+                Utility.showAlert(with: error ?? Messages.commonError, on: self)
+            }
+        }
     }
     
     fileprivate func setupUI(){
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.title = "Dashboard"
+        Utility.setNavigationBar(self, leftImage: nil, rightImage: nil, title: "Dashboard")
         tblView.register(UINib(nibName: TutorCell.identifier, bundle: nil), forCellReuseIdentifier: TutorCell.identifier)
     }
     
@@ -77,6 +90,7 @@ extension DashboardVC : UITableViewDelegate, UITableViewDataSource {
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: TutorDetailVC.identifier) as? TutorDetailVC else {
                 return
             }
+            vc.tutor = self.arrTutorList[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
         alertVC.addAction(view)
@@ -85,7 +99,16 @@ extension DashboardVC : UITableViewDelegate, UITableViewDataSource {
         }
         alertVC.addAction(edit)
         let del = UIAlertAction(title: "Delete", style: .default) { delA in
-            
+            let alertDel = UIAlertController(title: APPNAME, message: Messages.delConfirmation, preferredStyle: .alert)
+            let yesDel = UIAlertAction(title: "Delete", style: .destructive) { del in
+                Webservices.instance.delete(url: API_BASE_URL+"tutor/\(self.arrTutorList[indexPath.row]._id)", params: nil) { success, error in
+                    self.getAllTutors()
+                }
+            }
+            alertDel.addAction(yesDel)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertDel.addAction(cancel)
+            self.present(alertDel, animated: true, completion: nil)
         }
         alertVC.addAction(del)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

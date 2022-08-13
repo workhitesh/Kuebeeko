@@ -11,6 +11,7 @@ import MessageUI
 
 class TutorDetailVC: UIViewController {
     static let identifier = "TutorDetailVC"
+    var tutor:TutorModel?
     
     //MARK: IBOutlets
     

@@ -11,14 +11,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        NotificationCenter.default.addObserver(self, selector: #selector(setHomeVC(_:)), name: NSNotification.Name(rawValue: "SetHome"), object: nil)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .semibold), .foregroundColor: UIColor.white]
+        UINavigationBar.appearance().barStyle = .blackOpaque
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        setHomeVC(nil)
     }
 
+    @objc func setHomeVC(_ not:Notification?){
+        if Utility.getUD(UserDefaultKeys.isLogin) as? Bool ?? false {
+            if Utility.getUD(UserDefaultKeys.userType) as? Int == 0 {
+                // go to admin home
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController  = storyboard.instantiateViewController(withIdentifier: DashboardVC.identifier) as! DashboardVC
+                let navBar = UINavigationController(rootViewController: tabBarController)
+                navBar.isNavigationBarHidden = false
+                // Make the Tab Bar Controller the root view controller
+                window?.rootViewController = navBar
+                window?.makeKeyAndVisible()
+            } else if Utility.getUD(UserDefaultKeys.userType) as? Int == 1 {
+                
+                // tutor home
+            } else {
+                // student home
+            }
+        } else {
+            // set login as home ( configured from storyboard )
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController  = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            // Make the Tab Bar Controller the root view controller
+            let nav = UINavigationController(rootViewController: tabBarController)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

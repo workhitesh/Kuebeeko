@@ -192,12 +192,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdN-45-urW">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search Tutors" translatesAutoresizingMaskIntoConstraints="NO" id="Qy7-Mg-pvf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-yH-ycd">
-                                        <rect key="frame" x="0.0" y="51" width="414" height="801"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="YIK-lp-bJa" id="K4T-gC-oR9"/>
@@ -227,12 +223,9 @@
                                     <constraint firstItem="7fp-yH-ycd" firstAttribute="leading" secondItem="kdN-45-urW" secondAttribute="leading" id="1kJ-v8-Rni"/>
                                     <constraint firstAttribute="bottom" secondItem="7fp-yH-ycd" secondAttribute="bottom" id="4d5-q2-MFT"/>
                                     <constraint firstAttribute="bottom" secondItem="8z7-qU-SQ2" secondAttribute="bottom" constant="70" id="8Gc-va-1aG"/>
-                                    <constraint firstItem="7fp-yH-ycd" firstAttribute="top" secondItem="Qy7-Mg-pvf" secondAttribute="bottom" id="T0I-U0-AEz"/>
+                                    <constraint firstItem="7fp-yH-ycd" firstAttribute="top" secondItem="kdN-45-urW" secondAttribute="top" id="UmA-83-agP"/>
                                     <constraint firstAttribute="trailing" secondItem="8z7-qU-SQ2" secondAttribute="trailing" constant="20" id="Zb3-ve-ylU"/>
                                     <constraint firstAttribute="trailing" secondItem="7fp-yH-ycd" secondAttribute="trailing" id="cfc-tH-3Pf"/>
-                                    <constraint firstItem="Qy7-Mg-pvf" firstAttribute="leading" secondItem="kdN-45-urW" secondAttribute="leading" id="x06-LN-7UH"/>
-                                    <constraint firstItem="Qy7-Mg-pvf" firstAttribute="top" secondItem="kdN-45-urW" secondAttribute="top" id="xGX-NW-vOb"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qy7-Mg-pvf" secondAttribute="trailing" id="zSW-MG-4N8"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -246,7 +239,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="Qy7-Mg-pvf" id="qOU-gr-102"/>
                         <outlet property="tblView" destination="7fp-yH-ycd" id="4Bt-uS-kNX"/>
                     </connections>
                 </viewController>
@@ -359,9 +351,9 @@
                                 <rect key="frame" x="0.0" y="34" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpQ-iP-5XG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-photo" translatesAutoresizingMaskIntoConstraints="NO" id="aVT-92-Q60">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-photo" translatesAutoresizingMaskIntoConstraints="NO" id="aVT-92-Q60">
                                                 <rect key="frame" x="147" y="30" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="aVT-92-Q60" secondAttribute="height" multiplier="1:1" id="gno-Vg-Wn4"/>
@@ -441,7 +433,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iCf-wJ-shD">
                                                         <rect key="frame" x="0.0" y="21" width="374" height="43"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -507,6 +499,9 @@
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="createPressed:" destination="pbO-Gt-xWz" eventType="touchUpInside" id="MF7-6d-fpK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -526,6 +521,7 @@
                                             <constraint firstItem="Esm-Cc-u6S" firstAttribute="leading" secondItem="851-AL-SEs" secondAttribute="leading" id="egy-g6-rHY"/>
                                             <constraint firstItem="gjr-6D-M3E" firstAttribute="top" secondItem="aVT-92-Q60" secondAttribute="bottom" constant="47" id="fDZ-YT-Km6"/>
                                             <constraint firstItem="g3m-1P-97g" firstAttribute="width" secondItem="gjr-6D-M3E" secondAttribute="width" id="h2f-R2-nbg"/>
+                                            <constraint firstAttribute="height" constant="1200" id="ii4-hs-IXd"/>
                                             <constraint firstItem="aVT-92-Q60" firstAttribute="centerX" secondItem="bpQ-iP-5XG" secondAttribute="centerX" id="meh-9M-mmg"/>
                                             <constraint firstItem="Esm-Cc-u6S" firstAttribute="width" secondItem="851-AL-SEs" secondAttribute="width" id="nAs-QM-FyM"/>
                                             <constraint firstItem="Esm-Cc-u6S" firstAttribute="top" secondItem="851-AL-SEs" secondAttribute="bottom" constant="15" id="y3N-mL-416"/>
@@ -534,7 +530,6 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7ys-6T-q76" firstAttribute="bottom" secondItem="bpQ-iP-5XG" secondAttribute="bottom" id="Flx-VZ-mze"/>
                                     <constraint firstItem="bpQ-iP-5XG" firstAttribute="top" secondItem="7ys-6T-q76" secondAttribute="top" id="PCx-cC-26v"/>
                                     <constraint firstItem="7ys-6T-q76" firstAttribute="trailing" secondItem="bpQ-iP-5XG" secondAttribute="trailing" id="Q5N-XY-dS2"/>
                                     <constraint firstItem="bpQ-iP-5XG" firstAttribute="leading" secondItem="7ys-6T-q76" secondAttribute="leading" id="tiV-EM-osm"/>
@@ -553,6 +548,13 @@
                             <constraint firstItem="bpQ-iP-5XG" firstAttribute="width" secondItem="xDX-De-UIH" secondAttribute="width" id="sPT-M4-LrD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgTutor" destination="aVT-92-Q60" id="sXw-LK-w5z"/>
+                        <outlet property="tfEmail" destination="jmd-QS-vEa" id="aPI-tG-QQs"/>
+                        <outlet property="tfName" destination="QWj-5g-uye" id="hPp-Kd-rD9"/>
+                        <outlet property="tfPhone" destination="iCf-wJ-shD" id="3zO-jR-8MY"/>
+                        <outlet property="tfSubject" destination="C9V-Bl-ZO9" id="n7C-Ik-JwY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsp-e6-f3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

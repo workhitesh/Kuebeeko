@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 
 class FirebaseHandler {
     typealias ResponseBlock = (_ success:Bool, _ err:String?) -> Void
@@ -37,5 +38,36 @@ class FirebaseHandler {
             result(err == nil, err?.localizedDescription)
         }
     }
+    
+    class func uploadImage(_ path:String, image:UIImage, result:@escaping (_ uploadedFileLink:String?) -> ()){
+            // Create a root reference
+            let storageRef = Storage.storage().reference()
+            // Create storage reference
+            let mountainsRef = storageRef.child("\(path)/\(Utility.currentTimestamp).jpg")
+            // Create file metadata including the content type
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            guard let data = image.jpegData(compressionQuality: 0.7) else {
+                result(nil)
+                return
+            }
+            // Upload data and metadata
+            mountainsRef.putData(data, metadata: metadata) { metadata, error in
+                guard metadata != nil else {
+                    // Uh-oh, an error occurred!
+                    result(nil)
+                    return
+                }
+                // You can also access to download URL after upload.
+                mountainsRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        result(nil)
+                        return
+                    }
+                    result(downloadURL.absoluteString)
+                }
+            }
+        }
     
 }

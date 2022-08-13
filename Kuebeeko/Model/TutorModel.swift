@@ -8,10 +8,10 @@
 import Foundation
 
 struct TutorModel : Codable {
-    let id:String
+    let _id:String
     let name:String?
     let email:String?
-    let phone:String?
+    let phone:Int64?
     let image:String?
     let userType:UserType
     let overallRating:Double? // out of 5 stars

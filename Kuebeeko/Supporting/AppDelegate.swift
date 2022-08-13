@@ -21,8 +21,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         Utility.setAppNavBar()
         self.window = window
+        setHomeVC()
         return true
     }
+    
+    func setHomeVC(){
+        if Utility.getUD(UserDefaultKeys.isLogin) as? Bool ?? false {
+            if Utility.getUD(UserDefaultKeys.userType) as? Int == 0 {
+                // go to admin home
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabBarController  = storyboard.instantiateViewController(withIdentifier: DashboardVC.identifier) as! DashboardVC
+                // Make the Tab Bar Controller the root view controller
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.window?.rootViewController = tabBarController
+                appDel.window?.makeKeyAndVisible()
+            } else if Utility.getUD(UserDefaultKeys.userType) as? Int == 1 {
+                
+                // tutor home
+            } else {
+                // student home
+            }
+        } else {
+            // set login as home ( configured from storyboard )
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController  = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            // Make the Tab Bar Controller the root view controller
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            let nav = UINavigationController(rootViewController: tabBarController)
+            appDel.window?.rootViewController = nav
+            appDel.window?.makeKeyAndVisible()
+        }
+    }
+
 
     // MARK: UISceneSession Lifecycle
 

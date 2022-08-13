@@ -20,6 +20,7 @@ class TutorCell: UITableViewCell {
             lblName.text = tutor.name
             lblEmail.text = tutor.email
             viewRating.rating = tutor.overallRating ?? 0.0
+            imgProfile.loadImageWithIndicator(tutor.image, placeholder: .profilePlaceholder)
         }
     }
     

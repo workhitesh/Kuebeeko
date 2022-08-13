@@ -49,6 +49,11 @@ class LoginVC: UIViewController {
                             Utility.saveUD(dict["_id"] as? String ?? "", key: UserDefaultKeys.userId)
                             
                             print("user auth success and found in db, go to its home")
+                            guard let appDel = UIApplication.shared.delegate as? AppDelegate else {
+                                return
+                            }
+                            appDel.setHomeVC()
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SetHome"), object: nil)
                         } else {
                             Utility.showAlert(with: Messages.userNotFound, on: self)
                         }
@@ -77,10 +82,17 @@ class LoginVC: UIViewController {
                         Utility.saveUD(true, key: UserDefaultKeys.isLogin)
                         Utility.saveUD(0, key: UserDefaultKeys.userType)
                         Utility.saveUD(user.email ?? "", key: UserDefaultKeys.userEmail)
-                        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: DashboardVC.identifier) as? DashboardVC else {
+                        
+                        guard let appDel = UIApplication.shared.delegate as? AppDelegate else {
                             return
                         }
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        appDel.setHomeVC()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SetHome"), object: nil)
+                        
+//                        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: DashboardVC.identifier) as? DashboardVC else {
+//                            return
+//                        }
+//                        self.navigationController?.pushViewController(vc, animated: true)
                     } else {
                         Utility.showAlert(with: Messages.notAdmin, on: self)
                     }

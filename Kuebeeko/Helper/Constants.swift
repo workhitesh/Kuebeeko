@@ -15,6 +15,10 @@ struct Messages {
     static let invalidEmail = "Please enter an valid email address"
     static let notAdmin = "It seems like you're not an admin of this app"
     static let userNotFound = "User not found!"
+    static let noTutors = "No tutors found!"
+    static let noSubjects = "No subjects found!"
+    static let invalidInput = "Invalid input, please check all fields are entered correctly"
+    static let delConfirmation = "Are you sure you want to delete?\nThis action is irreversible."
     
 }
 

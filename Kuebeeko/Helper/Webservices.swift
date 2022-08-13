@@ -47,6 +47,21 @@ final class Webservices: NSObject {
         }
     }
     
+    func delete(url:String,params:[String:Any]?, completion: @escaping (_ success:Bool , _ error:String?) -> ()) {
+        AF.request(url, method: .delete, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            print(response)
+            switch response.result {
+            case .success(let resData as AnyObject):
+                completion(true,nil)
+            case .failure(let err):
+                print(err)
+                completion(false,err.localizedDescription)
+            default:
+                break
+            }
+        }
+    }
+    
     // cancel pending requests
     func cancelPendingRequests(){
         Alamofire.Session.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
