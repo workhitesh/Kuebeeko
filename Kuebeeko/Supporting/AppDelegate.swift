@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Utility.setAppNavBar()
         self.window = window
         setHomeVC()
+        getAllSubjects()
         return true
     }
     
@@ -53,6 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    func getAllSubjects(){
+        Webservices.instance.get(url: API_BASE_URL+"subjects", params: nil) { success, response, error in
+            if success {
+                arrSubjects.removeAll()
+                if let subjects = response as? NSArray {
+                    for i in 0..<subjects.count {
+                        if let sub = subjects[i] as? NSDictionary {
+                            let objSub = SubjectModel(_id: sub["_id"] as? String ?? "", name: sub["name"] as? String ?? "")
+                            arrSubjects.append(objSub)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // MARK: UISceneSession Lifecycle
 

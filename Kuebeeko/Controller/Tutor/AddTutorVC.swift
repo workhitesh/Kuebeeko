@@ -16,7 +16,6 @@ class AddTutorVC: UIViewController {
     @IBOutlet weak var tfSubject: UITextField!
     var tutor:TutorModel? // if present means its in edit mode
     fileprivate let subjectPicker = UIPickerView()
-    fileprivate var arrSubjects = [SubjectModel]()
     var selectedSubject:SubjectModel?
     var uploadedImageLink:String?
     
@@ -24,7 +23,7 @@ class AddTutorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        getAllSubjects()
+//        getAllSubjects()
         // Do any additional setup after loading the view.
     }
     
@@ -38,7 +37,7 @@ class AddTutorVC: UIViewController {
                     for i in 0..<subjects.count {
                         if let sub = subjects[i] as? NSDictionary {
                             let objSub = SubjectModel(_id: sub["_id"] as? String ?? "", name: sub["name"] as? String ?? "")
-                            self.arrSubjects.append(objSub)
+                            arrSubjects.append(objSub)
                         }
                     }
                     self.subjectPicker.reloadAllComponents()
@@ -73,6 +72,22 @@ class AddTutorVC: UIViewController {
         // set image selection
         let tap = UITapGestureRecognizer(target: self, action: #selector(selectImage(_:)))
         imgTutor.addGestureRecognizer(tap)
+        
+        if tutor != nil {
+            presetUI()
+        }
+    }
+    
+    fileprivate func presetUI(){
+        imgTutor.loadImageWithIndicator(tutor?.image, placeholder: .profilePlaceholder)
+        tfName.text = tutor?.name
+        tfEmail.text = tutor?.email
+        tfPhone.text = "\(tutor?.phone ?? 0)"
+        let subject = arrSubjects.first(where: {$0._id == tutor?.subjectId})
+        tfSubject.text = subject?.name
+        selectedSubject = subject
+        uploadedImageLink = tutor?.image
+        tfEmail.isUserInteractionEnabled = false
     }
     
     //MARK: IBActions
@@ -83,26 +98,43 @@ class AddTutorVC: UIViewController {
                 Utility.showAlert(with: Messages.invalidInput, on: self)
             } else {
                 // validated successfully
-                let params = ["name":name,"email":email,"phone":phone.int64Value ?? 0,"image":image,"userType":1,"overallRating":0.0,"subjectId":subjectId,"bio":""] as [String : Any]
-                Utility.showLoader(on: self)
-                Webservices.instance.post(url: API_BASE_URL+"tutor/create", params: params) { success, response, err in
-                    if success {
-                        // create in firebase auth
-                        let pwd = email.substring(to: 6)
-                        print("pwd : \(pwd)")
-                        FirebaseHandler.createUserInAuth(email, password: pwd) { user, errorFir in
-                            Utility.hideLoader(from: self)
-                            if errorFir == nil {
-                                Utility.showAlert(with: "Tutor created with password : \(pwd)", on: self)
-                            } else {
-                                Utility.showAlert(with: errorFir ?? Messages.commonError, on: self)
+                
+                if self.tutor == nil {
+                    
+                    let params = ["name":name,"email":email,"phone":phone.int64Value ?? 0,"image":image,"userType":1,"overallRating":0.0,"subjectId":subjectId,"bio":""] as [String : Any]
+                    Utility.showLoader(on: self)
+                    Webservices.instance.post(url: API_BASE_URL+"tutor/create", params: params) { success, response, err in
+                        if success {
+                            // create in firebase auth
+                            let pwd = email.substring(to: 6)
+                            print("pwd : \(pwd)")
+                            FirebaseHandler.createUserInAuth(email, password: pwd) { user, errorFir in
+                                Utility.hideLoader(from: self)
+                                if errorFir == nil {
+                                    Utility.showAlert(with: "Tutor created with password : \(pwd)", on: self)
+                                } else {
+                                    Utility.showAlert(with: errorFir ?? Messages.commonError, on: self)
+                                }
                             }
+                        } else {
+                            Utility.hideLoader(from: self)
+                            Utility.showAlert(with: err ?? Messages.commonError, on: self)
                         }
-                    } else {
+                    }
+                } else {
+                    // update
+                    Utility.showLoader(on: self)
+                    let params = ["name":name,"email":email,"phone":phone.int64Value ?? 0,"image":image,"userType":1,"overallRating":tutor?.overallRating ?? 0.0,"subjectId":subjectId,"bio":tutor?.bio ?? ""] as [String : Any]
+                    Webservices.instance.put(url: API_BASE_URL+"tutor/\(self.tutor?._id ?? "")", params: params) { success, error in
                         Utility.hideLoader(from: self)
-                        Utility.showAlert(with: err ?? Messages.commonError, on: self)
+                        if success {
+                            self.navigationController?.popViewController(animated: true)
+                        } else {
+                            Utility.showAlert(with: error ?? Messages.commonError, on: self)
+                        }
                     }
                 }
+                
             }
         } else {
             Utility.showAlert(with: Messages.invalidInput, on: self)

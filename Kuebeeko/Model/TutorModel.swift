@@ -17,4 +17,5 @@ struct TutorModel : Codable {
     let overallRating:Double? // out of 5 stars
     let subjectId:String?
     let bio:String?
+    let hrlyRate:Double?
 }

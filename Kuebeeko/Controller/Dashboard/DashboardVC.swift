@@ -38,7 +38,7 @@ class DashboardVC: UIViewController {
                 if let tutors = response as? NSArray {
                     for i in 0..<tutors.count {
                         if let tut = tutors[i] as? NSDictionary {
-                            let objTut = TutorModel(_id: tut["_id"] as? String ?? "", name: tut["name"] as? String ?? "", email: tut["email"] as? String ?? "", phone: tut["phone"] as? Int64 ?? 0, image: tut["image"] as? String ?? "", userType: .tutor, overallRating: tut["overallRating"] as? Double ?? 0.0, subjectId: tut["subjectId"] as? String ?? "", bio: tut["bio"] as? String ?? "")
+                            let objTut = TutorModel(_id: tut["_id"] as? String ?? "", name: tut["name"] as? String ?? "", email: tut["email"] as? String ?? "", phone: tut["phone"] as? Int64 ?? 0, image: tut["image"] as? String ?? "", userType: .tutor, overallRating: tut["overallRating"] as? Double ?? 0.0, subjectId: tut["subjectId"] as? String ?? "", bio: tut["bio"] as? String ?? "", hrlyRate: tut["hrlyRate"] as? Double ?? 0.0) 
                             self.arrTutorList.append(objTut)
                         }
                     }
@@ -95,7 +95,11 @@ extension DashboardVC : UITableViewDelegate, UITableViewDataSource {
         }
         alertVC.addAction(view)
         let edit = UIAlertAction(title: "Edit", style: .default) { editA in
-            
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: AddTutorVC.identifier) as? AddTutorVC else {
+                return
+            }
+            vc.tutor = self.arrTutorList[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         alertVC.addAction(edit)
         let del = UIAlertAction(title: "Delete", style: .default) { delA in

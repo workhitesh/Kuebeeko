@@ -22,6 +22,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         setHomeVC(nil)
+        getAllSubjects()
+    }
+    
+    func getAllSubjects(){
+        Webservices.instance.get(url: API_BASE_URL+"subjects", params: nil) { success, response, error in
+            if success {
+                arrSubjects.removeAll()
+                if let subjects = response as? NSArray {
+                    for i in 0..<subjects.count {
+                        if let sub = subjects[i] as? NSDictionary {
+                            let objSub = SubjectModel(_id: sub["_id"] as? String ?? "", name: sub["name"] as? String ?? "")
+                            arrSubjects.append(objSub)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @objc func setHomeVC(_ not:Notification?){

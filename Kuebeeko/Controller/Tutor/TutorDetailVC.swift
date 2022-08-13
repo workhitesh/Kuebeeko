@@ -14,6 +14,13 @@ class TutorDetailVC: UIViewController {
     var tutor:TutorModel?
     
     //MARK: IBOutlets
+    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var lblBio: UILabel!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var viewRating: CosmosView!
+    @IBOutlet weak var lblHrlyRate: UITextField!
+    @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var lblPhone: UILabel!
     
 
     //MARK: View life cycles
@@ -25,12 +32,20 @@ class TutorDetailVC: UIViewController {
     
     //MARK: Fxns
     fileprivate func setupUI(){
-        self.navigationItem.title = nil
+        self.navigationItem.title = tutor?.name
+        imgProfile.loadImageWithIndicator(tutor?.image, placeholder: .profilePlaceholder)
+        lblBio.text = tutor?.bio
+        let subject = arrSubjects.first(where: {$0._id == tutor?.subjectId ?? ""})?.name ?? ""
+        lblName.text = (tutor?.name ?? "") + ", teaches :\(subject)"
+        viewRating.rating = tutor?.overallRating ?? 0.0
+        lblHrlyRate.text = "\(tutor?.hrlyRate ?? 0)"
+        lblEmail.text = tutor?.email
+        lblPhone.text = "\(tutor?.phone ?? 0)"
     }
     
     //MARK:IBActions
     @IBAction func emailTutor(_ sender:UIButton){
-        Utility.openEmailComposer("kroos@tk.de?subject=Kuebeeko")
+        Utility.openEmailComposer("\(tutor?.email ?? "")?subject=Kuebeeko")
     }
     @IBAction func callTextTutor(_ sender:UIButton){
         let alertVC = UIAlertController(title: APPNAME, message: nil, preferredStyle: .actionSheet)
@@ -40,14 +55,14 @@ class TutorDetailVC: UIViewController {
             } else {
                 let composeVC = MFMessageComposeViewController()
                 composeVC.messageComposeDelegate = self
-                composeVC.recipients = ["+494937433434"]
+                composeVC.recipients = ["\(self.tutor?.phone ?? 0)"]
                 composeVC.body = "Hello from Kuebeeko,\n"
                 self.present(composeVC, animated: true, completion: nil)
             }
         }
         alertVC.addAction(text)
         let call = UIAlertAction(title: "Call", style: .default) { call in
-            Utility.callNumber("+494937433434")
+            Utility.callNumber("\(self.tutor?.phone ?? 0)")
         }
         alertVC.addAction(call)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

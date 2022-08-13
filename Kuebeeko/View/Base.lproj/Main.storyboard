@@ -577,8 +577,8 @@
                                             <constraint firstAttribute="width" constant="120" id="1gX-Pw-nBN"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toni Kroos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-60-dqI">
-                                        <rect key="frame" x="150.5" y="185" width="113.5" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toni Kroos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-60-dqI">
+                                        <rect key="frame" x="10" y="185" width="394" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -803,6 +803,7 @@
                                     <constraint firstItem="AxW-Zu-4Jh" firstAttribute="width" secondItem="LTV-FH-fCI" secondAttribute="width" id="Q2o-py-UXH"/>
                                     <constraint firstItem="AxW-Zu-4Jh" firstAttribute="height" secondItem="LTV-FH-fCI" secondAttribute="height" id="Xx4-d2-Ge7"/>
                                     <constraint firstItem="EE2-Jf-UOM" firstAttribute="centerX" secondItem="vYS-ll-kXZ" secondAttribute="centerX" id="ZyY-4I-slb"/>
+                                    <constraint firstItem="vSF-60-dqI" firstAttribute="leading" secondItem="vYS-ll-kXZ" secondAttribute="leading" constant="10" id="cM6-qP-8j0"/>
                                     <constraint firstItem="LTV-FH-fCI" firstAttribute="top" secondItem="Tj1-pi-WK3" secondAttribute="bottom" constant="20" id="cai-G8-0VE"/>
                                     <constraint firstItem="AxW-Zu-4Jh" firstAttribute="top" secondItem="LTV-FH-fCI" secondAttribute="bottom" constant="20" id="eeb-iT-dkx"/>
                                     <constraint firstItem="AxW-Zu-4Jh" firstAttribute="leading" secondItem="LTV-FH-fCI" secondAttribute="leading" id="kUJ-fX-YQv"/>
@@ -825,6 +826,15 @@
                             <constraint firstItem="1fA-si-LID" firstAttribute="trailing" secondItem="vYS-ll-kXZ" secondAttribute="trailing" id="evy-wA-iOR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgProfile" destination="aVB-q9-JYF" id="dau-cg-EZp"/>
+                        <outlet property="lblBio" destination="Tj1-pi-WK3" id="9vk-tI-eq6"/>
+                        <outlet property="lblEmail" destination="asW-AA-k7M" id="1xe-t1-06w"/>
+                        <outlet property="lblHrlyRate" destination="vsn-kx-st8" id="FQm-oG-xwh"/>
+                        <outlet property="lblName" destination="vSF-60-dqI" id="Pev-WR-czO"/>
+                        <outlet property="lblPhone" destination="TsA-sK-DbJ" id="cqJ-bQ-JE4"/>
+                        <outlet property="viewRating" destination="W45-EU-Xax" id="Mk5-qM-khS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmQ-fh-oIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

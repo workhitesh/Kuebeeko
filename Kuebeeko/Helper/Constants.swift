@@ -55,3 +55,5 @@ var userModel:UserModel?
 let API_BASE_URL = "http://35.160.199.176/"
 
 let Admins = ["admin@ihitesh.com"]
+
+var arrSubjects = [SubjectModel]()
