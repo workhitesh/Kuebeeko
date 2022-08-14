@@ -8,7 +8,7 @@
 import Foundation
 
 struct RatingModel : Codable {
-    let id:String
+    let _id:String
     let reviewedById:String
     let reviewedByName:String
     let reviewedByImage:String?

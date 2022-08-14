@@ -47,6 +47,7 @@ class TutorDetailVC: UIViewController {
     @IBAction func emailTutor(_ sender:UIButton){
         Utility.openEmailComposer("\(tutor?.email ?? "")?subject=Kuebeeko")
     }
+    
     @IBAction func callTextTutor(_ sender:UIButton){
         let alertVC = UIAlertController(title: APPNAME, message: nil, preferredStyle: .actionSheet)
         let text = UIAlertAction(title: "Send a text message", style: .default) { msg in
@@ -69,10 +70,19 @@ class TutorDetailVC: UIViewController {
         alertVC.addAction(cancel)
         present(alertVC, animated: true, completion: nil)
     }
+    
     @IBAction func viewReviewsPressed(_ sender:UIButton){
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewRatingsVC.identifier) as? ViewRatingsVC else {
             return
         }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func addReviewPressed(_ sender:UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: AddReviewVC.identifier) as? AddReviewVC else {
+            return
+        }
+        vc.tutor = self.tutor
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

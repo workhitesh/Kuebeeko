@@ -12,6 +12,7 @@ struct UserModel : Codable {
     let userType:UserType // 0 = admin, 1 = tutor, 2 = student
     let email:String
     let image:String?
+    let name:String?
 }
 
 enum UserType : Int, Codable {

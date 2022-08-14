@@ -47,6 +47,8 @@ enum UserDefaultKeys {
     static let userEmail = "email"
     static let userId = "userId"
     static let userType = "userType"
+    static let name = "name"
+    static let image = "image"
 }
 
 let APPNAME = "Kuebeeko"

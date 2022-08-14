@@ -47,6 +47,8 @@ class LoginVC: UIViewController {
                             Utility.saveUD(dict["userType"] as? Int ?? 2, key: UserDefaultKeys.userType)
                             Utility.saveUD(user.email ?? "", key: UserDefaultKeys.userEmail)
                             Utility.saveUD(dict["_id"] as? String ?? "", key: UserDefaultKeys.userId)
+                            Utility.saveUD(dict["name"] as? String ?? "", key: UserDefaultKeys.name)
+                            Utility.saveUD(dict["image"] as? String ?? "", key: UserDefaultKeys.image)
                             
                             print("user auth success and found in db, go to its home")
                             guard let appDel = UIApplication.shared.delegate as? AppDelegate else {

@@ -25,8 +25,8 @@ class ViewRatingsVC: UIViewController {
     
     //MARK: Fxns
     fileprivate func makeTempArr(){
-        let r1 = RatingModel(id: "1", reviewedById: "2", reviewedByName: "James", reviewedByImage: "", tutorId: "1", rating: 5, comment: "Really helped me understand how to dribble the ball. Precision is must for me and there's no one who could do it better rather than someone with more than 90% pass accuracy.", timestamp: 837648374)
-        let r2 = RatingModel(id: "1", reviewedById: "2", reviewedByName: "Michelle", reviewedByImage: "", tutorId: "1", rating: 3, comment: "Good teacher", timestamp: 837648374)
+        let r1 = RatingModel(_id: "1", reviewedById: "2", reviewedByName: "James", reviewedByImage: "", tutorId: "1", rating: 5, comment: "Really helped me understand how to dribble the ball. Precision is must for me and there's no one who could do it better rather than someone with more than 90% pass accuracy.", timestamp: 837648374)
+        let r2 = RatingModel(_id: "1", reviewedById: "2", reviewedByName: "Michelle", reviewedByImage: "", tutorId: "1", rating: 3, comment: "Good teacher", timestamp: 837648374)
         arrRatings.append(r1)
         arrRatings.append(r2)
         tblView.reloadData()
