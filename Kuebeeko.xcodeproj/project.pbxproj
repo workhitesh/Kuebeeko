@@ -47,6 +47,7 @@
 		6781F50B28A044260089382C /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4F428A044260089382C /* IQUIView+Hierarchy.swift */; };
 		6781F50C28A044260089382C /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4F528A044260089382C /* IQNSArray+Sort.swift */; };
 		6781F50D28A044260089382C /* IQKeyboardManager+UITextFieldViewNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6781F4F628A044260089382C /* IQKeyboardManager+UITextFieldViewNotification.swift */; };
+		6788C48028A959EE0036A9BD /* RatingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6788C47F28A959EE0036A9BD /* RatingDetailVC.swift */; };
 		67A7AFAB28A03DF30028CB4F /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A7AFAA28A03DF30028CB4F /* ResetPasswordVC.swift */; };
 		67B55EFF289F02C80083F5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55EFE289F02C80083F5C9 /* AppDelegate.swift */; };
 		67B55F01289F02C80083F5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B55F00289F02C80083F5C9 /* SceneDelegate.swift */; };
@@ -143,6 +144,7 @@
 		6781F4F428A044260089382C /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		6781F4F528A044260089382C /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		6781F4F628A044260089382C /* IQKeyboardManager+UITextFieldViewNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQKeyboardManager+UITextFieldViewNotification.swift"; sourceTree = "<group>"; };
+		6788C47F28A959EE0036A9BD /* RatingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDetailVC.swift; sourceTree = "<group>"; };
 		67A7AFAA28A03DF30028CB4F /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		67B55EFB289F02C80083F5C9 /* Kuebeeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kuebeeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67B55EFE289F02C80083F5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				67593A5D28A854C3008F72C4 /* StudentDashboardVC.swift */,
 				673FFF6228A8ACAA00FCD27A /* AddReviewVC.swift */,
+				6788C47F28A959EE0036A9BD /* RatingDetailVC.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				67A7AFAB28A03DF30028CB4F /* ResetPasswordVC.swift in Sources */,
 				672174F628A56AF700977FC1 /* TutorDetailVC.swift in Sources */,
 				6781F4FC28A044260089382C /* IQToolbar.swift in Sources */,
+				6788C48028A959EE0036A9BD /* RatingDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,8 @@ class RatingsCell: UITableViewCell {
             lblRatedBy.text = rating.reviewedByName
             lblRateComment.text = rating.comment
             viewRating.rating = rating.rating
+            viewRating.isUserInteractionEnabled = false
+            imgProfile.loadImageWithIndicator(rating.reviewedByImage, placeholder: .profilePlaceholder)
         }
     }
     

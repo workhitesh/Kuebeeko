@@ -14,27 +14,61 @@ class ViewRatingsVC: UIViewController {
     //MARK: IBOutlets
     @IBOutlet weak var sgmntSort:UISegmentedControl!
     @IBOutlet weak var tblView:UITableView!
+    var tutor:TutorModel!
 
     //MARK: View life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        makeTempArr()
+        getAllReviews()
         // Do any additional setup after loading the view.
     }
     
     //MARK: Fxns
-    fileprivate func makeTempArr(){
-        let r1 = RatingModel(_id: "1", reviewedById: "2", reviewedByName: "James", reviewedByImage: "", tutorId: "1", rating: 5, comment: "Really helped me understand how to dribble the ball. Precision is must for me and there's no one who could do it better rather than someone with more than 90% pass accuracy.", timestamp: 837648374)
-        let r2 = RatingModel(_id: "1", reviewedById: "2", reviewedByName: "Michelle", reviewedByImage: "", tutorId: "1", rating: 3, comment: "Good teacher", timestamp: 837648374)
-        arrRatings.append(r1)
-        arrRatings.append(r2)
-        tblView.reloadData()
+    fileprivate func getAllReviews(){
+        Utility.showLoader(on: self)
+        let url = API_BASE_URL+"rating/\(self.tutor._id)/view"
+        Webservices.instance.get(url: url, params: nil) { success, response, error in
+            Utility.hideLoader(from: self)
+            if success {
+                guard let ratings = response as? NSArray else {
+                    return
+                }
+                self.arrRatings.removeAll()
+                for i in 0..<ratings.count {
+                    if let dict = ratings[i] as? NSDictionary {
+                        let ratingM = RatingModel(_id: dict["_id"] as! String, reviewedById: dict["reviewedById"] as! String, reviewedByName: dict["reviewedByName"] as! String, reviewedByImage: dict["reviewedByImage"] as? String ?? "", tutorId: dict["tutorId"] as! String, rating: dict["rating"] as! Double, comment: dict["comment"] as? String, timestamp: dict["timestamp"] as! Int64)
+                        self.arrRatings.append(ratingM)
+                    }
+                }
+                self.tblView.reloadData()
+                
+            } else {
+                Utility.showAlert(with: error ?? Messages.commonError, on: self)
+            }
+        }
     }
     
     fileprivate func setupUI(){
         tblView.register(UINib(nibName: RatingsCell.identifier, bundle:     nil), forCellReuseIdentifier: RatingsCell.identifier)
         self.navigationItem.title = nil
+    }
+    
+    //MARK: IBActions
+    @IBAction func sgmntValChanged(_ sender:UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            arrRatings = arrRatings.sorted(by: {$0.rating < $1.rating})
+            tblView.reloadData()
+        case 1:
+            arrRatings = arrRatings.sorted(by: {$0.rating > $1.rating})
+            tblView.reloadData()
+        case 2:
+            arrRatings = arrRatings.sorted(by: {$0.timestamp > $1.timestamp})
+            tblView.reloadData()
+        default:
+            break
+        }
     }
     
 

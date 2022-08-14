@@ -75,6 +75,7 @@ class TutorDetailVC: UIViewController {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewRatingsVC.identifier) as? ViewRatingsVC else {
             return
         }
+        vc.tutor = self.tutor
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
