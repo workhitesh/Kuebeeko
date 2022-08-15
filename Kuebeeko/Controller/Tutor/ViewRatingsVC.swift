@@ -37,7 +37,7 @@ class ViewRatingsVC: UIViewController {
                 self.arrRatings.removeAll()
                 for i in 0..<ratings.count {
                     if let dict = ratings[i] as? NSDictionary {
-                        let ratingM = RatingModel(_id: dict["_id"] as! String, reviewedById: dict["reviewedById"] as! String, reviewedByName: dict["reviewedByName"] as! String, reviewedByImage: dict["reviewedByImage"] as? String ?? "", tutorId: dict["tutorId"] as! String, rating: dict["rating"] as! Double, comment: dict["comment"] as? String, timestamp: dict["timestamp"] as! Int64)
+                        let ratingM = RatingModel(_id: dict["_id"] as! String, reviewedById: dict["reviewedById"] as! String, reviewedByName: dict["reviewedByName"] as! String, reviewedByImage: dict["reviewedByImage"] as? String ?? "", tutorId: dict["tutorId"] as! String, rating: dict["rating"] as! Double, comment: dict["comment"] as! String, timestamp: dict["timestamp"] as! Int64)
                         self.arrRatings.append(ratingM)
                     }
                 }
@@ -89,7 +89,11 @@ extension ViewRatingsVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: RatingDetailVC.identifier) as? RatingDetailVC else {
+            return
+        }
+        vc.rating = self.arrRatings[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

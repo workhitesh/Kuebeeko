@@ -21,6 +21,9 @@
 		672174FE28A5A07000977FC1 /* RatingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672174FC28A5A07000977FC1 /* RatingsCell.swift */; };
 		672174FF28A5A07000977FC1 /* RatingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672174FD28A5A07000977FC1 /* RatingsCell.xib */; };
 		6721750128A5A27F00977FC1 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6721750028A5A27F00977FC1 /* RatingModel.swift */; };
+		67271FAB28AAA9DE006A4AFB /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67271FAA28AAA9DE006A4AFB /* CommentModel.swift */; };
+		67271FAF28AAADC4006A4AFB /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67271FAD28AAADC4006A4AFB /* CommentCell.swift */; };
+		67271FB028AAADC4006A4AFB /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67271FAE28AAADC4006A4AFB /* CommentCell.xib */; };
 		673FFF6328A8ACAA00FCD27A /* AddReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FFF6228A8ACAA00FCD27A /* AddReviewVC.swift */; };
 		67593A5B28A84B4E008F72C4 /* TutorDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67593A5A28A84B4E008F72C4 /* TutorDashboardVC.swift */; };
 		67593A5E28A854C3008F72C4 /* StudentDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67593A5D28A854C3008F72C4 /* StudentDashboardVC.swift */; };
@@ -117,6 +120,9 @@
 		672174FC28A5A07000977FC1 /* RatingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCell.swift; sourceTree = "<group>"; };
 		672174FD28A5A07000977FC1 /* RatingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsCell.xib; sourceTree = "<group>"; };
 		6721750028A5A27F00977FC1 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
+		67271FAA28AAA9DE006A4AFB /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		67271FAD28AAADC4006A4AFB /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		67271FAE28AAADC4006A4AFB /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		673FFF6228A8ACAA00FCD27A /* AddReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewVC.swift; sourceTree = "<group>"; };
 		67593A5A28A84B4E008F72C4 /* TutorDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDashboardVC.swift; sourceTree = "<group>"; };
 		67593A5D28A854C3008F72C4 /* StudentDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDashboardVC.swift; sourceTree = "<group>"; };
@@ -249,6 +255,15 @@
 				672174FD28A5A07000977FC1 /* RatingsCell.xib */,
 			);
 			path = RatingsCell;
+			sourceTree = "<group>";
+		};
+		67271FAC28AAADAD006A4AFB /* CommentCell */ = {
+			isa = PBXGroup;
+			children = (
+				67271FAD28AAADC4006A4AFB /* CommentCell.swift */,
+				67271FAE28AAADC4006A4AFB /* CommentCell.xib */,
+			);
+			path = CommentCell;
 			sourceTree = "<group>";
 		};
 		67593A5C28A854AE008F72C4 /* Student */ = {
@@ -396,6 +411,7 @@
 				6705159928A315C900899A56 /* TutorModel.swift */,
 				6721750028A5A27F00977FC1 /* RatingModel.swift */,
 				67FC500828A71482008542E1 /* SubjectModel.swift */,
+				67271FAA28AAA9DE006A4AFB /* CommentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +419,7 @@
 		67B55F33289F02FF0083F5C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				67271FAC28AAADAD006A4AFB /* CommentCell */,
 				672174FB28A5A04700977FC1 /* RatingsCell */,
 				67B55F04289F02C80083F5C9 /* Main.storyboard */,
 				67B55F0C289F02CA0083F5C9 /* LaunchScreen.storyboard */,
@@ -594,6 +611,7 @@
 				67B55F0B289F02CA0083F5C9 /* Assets.xcassets in Resources */,
 				672174FF28A5A07000977FC1 /* RatingsCell.xib in Resources */,
 				67B55F06289F02C80083F5C9 /* Main.storyboard in Resources */,
+				67271FB028AAADC4006A4AFB /* CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +661,7 @@
 				6705159628A3029B00899A56 /* DashboardVC.swift in Sources */,
 				671ECC19289F1B9600C768D1 /* SignUpVC.swift in Sources */,
 				6705159A28A315C900899A56 /* TutorModel.swift in Sources */,
+				67271FAF28AAADC4006A4AFB /* CommentCell.swift in Sources */,
 				67B55F09289F02C80083F5C9 /* Kuebeeko.xcdatamodeld in Sources */,
 				6781F50528A044260089382C /* IQKeyboardManager+Debug.swift in Sources */,
 				67B55F52289F11010083F5C9 /* LoginVC.swift in Sources */,
@@ -661,6 +680,7 @@
 				67B55F01289F02C80083F5C9 /* SceneDelegate.swift in Sources */,
 				6781F50928A044260089382C /* IQUIViewController+Additions.swift in Sources */,
 				6781F4F728A044260089382C /* IQTextView.swift in Sources */,
+				67271FAB28AAA9DE006A4AFB /* CommentModel.swift in Sources */,
 				6781F50828A044260089382C /* IQUIScrollView+Additions.swift in Sources */,
 				6781F4F928A044260089382C /* IQPreviousNextView.swift in Sources */,
 				67B55F44289F08E90083F5C9 /* Constants.swift in Sources */,
