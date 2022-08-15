@@ -46,12 +46,30 @@ class RatingDetailVC: UIViewController {
         lblNameMReviewer.text = rating.reviewedByName
         imgMainReviewer.loadImageWithIndicator(rating.reviewedByImage, placeholder: .profilePlaceholder)
         viewMRating.rating = rating.rating
-        txtView.text = rating.comment
-        txtView.isScrollEnabled = true
+        txtView.text = nil
+        viewMComment.isScrollEnabled = true
+        viewMComment.text = rating.comment
     }
     
     fileprivate func getAllComments(){
-        
+        Utility.showLoader(on: self)
+        Webservices.instance.get(url: API_BASE_URL+"comment/\(rating._id)", params: nil) { success, response, error in
+            Utility.hideLoader(from: self)
+            if success {
+                if let comments = response as? NSArray {
+                    for i in 0..<comments.count {
+                        if let dict = comments[i] as? NSDictionary {
+                            let objTut = CommentModel(_id: dict["_id"] as! String, ratingId: dict["ratingId"] as! String, commentedById: dict["commentedById"] as! String, commentedByImage: dict["commentedByImage"] as? String ?? "", commentedByName: dict["commentedByName"] as? String ?? "", comment: dict["comment"] as! String, timestamp: dict["timestamp"] as! Int64)
+                            self.arrComments.append(objTut)
+                        }
+                    }
+                } else {
+                    Utility.showAlert(with: Messages.noTutors, on: self)
+                }
+            } else {
+                Utility.showAlert(with: error ?? Messages.commonError, on: self)
+            }
+        }
     }
     
     
@@ -73,6 +91,7 @@ extension RatingDetailVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
+        cell.comment = arrComments[indexPath.row]
         return cell
     }
     

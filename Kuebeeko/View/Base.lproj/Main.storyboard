@@ -564,7 +564,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OYS-W2-CbJ" customClass="DesignableImageView" customModule="Kuebeeko" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OYS-W2-CbJ" customClass="DesignableImageView" customModule="Kuebeeko" customModuleProvider="target">
                                 <rect key="frame" x="20" y="64" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OYS-W2-CbJ" secondAttribute="height" multiplier="1:1" id="QYX-OZ-W5V"/>

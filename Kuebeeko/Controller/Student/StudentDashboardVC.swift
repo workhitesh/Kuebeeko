@@ -81,7 +81,7 @@ class StudentDashboardVC: UIViewController {
             tblView.reloadData()
         case 1:
             isSortingOrSearching = true
-            sortedSearchTutorList = arrTutorList.sorted(by: {$0.overallRating ?? 0.0 > $1.hrlyRate ?? 0.0})
+            sortedSearchTutorList = arrTutorList.sorted(by: {$0.overallRating ?? 0.0 > $1.overallRating ?? 0.0})
             tblView.reloadData()
         case 2:
             sortOnBasisofSubject()

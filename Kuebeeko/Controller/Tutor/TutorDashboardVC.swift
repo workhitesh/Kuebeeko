@@ -63,6 +63,25 @@ extension TutorDashboardVC:UITableViewDelegate, UITableViewDataSource {
         if userType == 1 {
             if indexPath.row == 0 {
                 
+                Utility.showLoader(on: self)
+                let email = Utility.getUD(UserDefaultKeys.userEmail) as? String ?? ""
+                Webservices.instance.get(url: API_BASE_URL+"tutor/\(email)", params: nil) { success, response, error in
+                    Utility.hideLoader(from: self)
+                    if success {
+                        guard let dict = (response as? NSArray)?[0] as? NSDictionary else {
+                            return
+                        }
+                        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewRatingsVC.identifier) as? ViewRatingsVC else {
+                            return
+                        }
+                        let tutor = TutorModel(_id: dict["_id"] as? String ?? "", name: dict["name"] as? String ?? "", email: dict["email"] as? String ?? "", phone: dict["phone"] as? Int64 ?? 0, image: dict["image"] as? String ?? "", userType: .tutor, overallRating: dict["overallRating"] as? Double ?? 0.0, subjectId: dict["subjectId"] as? String ?? "", bio: dict["bio"] as? String ?? "", hrlyRate: dict["hrlyRate"] as? Double ?? 0.0)
+                        vc.tutor = tutor
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    } else {
+                        Utility.showAlert(with: Messages.userNotFound, on: self)
+                    }
+                }
+                
             } else if indexPath.row == 1 {
                 Utility.showLoader(on: self)
                 let email = Utility.getUD(UserDefaultKeys.userEmail) as? String ?? ""

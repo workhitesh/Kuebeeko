@@ -37,10 +37,11 @@ class ViewRatingsVC: UIViewController {
                 self.arrRatings.removeAll()
                 for i in 0..<ratings.count {
                     if let dict = ratings[i] as? NSDictionary {
-                        let ratingM = RatingModel(_id: dict["_id"] as! String, reviewedById: dict["reviewedById"] as! String, reviewedByName: dict["reviewedByName"] as! String, reviewedByImage: dict["reviewedByImage"] as? String ?? "", tutorId: dict["tutorId"] as! String, rating: dict["rating"] as! Double, comment: dict["comment"] as! String, timestamp: dict["timestamp"] as! Int64)
+                        let ratingM = RatingModel(_id: dict["_id"] as! String, reviewedById: dict["reviewedById"] as! String, reviewedByName: dict["reviewedByName"] as! String, reviewedByImage: dict["reviewedByImage"] as? String ?? "", tutorId: dict["tutorId"] as! String, rating: dict["rating"] as! Double, comment: dict["comment"] as? String, timestamp: dict["timestamp"] as! Int64)
                         self.arrRatings.append(ratingM)
                     }
                 }
+                self.arrRatings = self.arrRatings.sorted(by: {$0.timestamp > $1.timestamp})
                 self.tblView.reloadData()
                 
             } else {

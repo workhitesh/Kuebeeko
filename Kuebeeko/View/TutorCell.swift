@@ -17,7 +17,12 @@ class TutorCell: UITableViewCell {
     
     var tutor:TutorModel! {
         didSet {
-            lblName.text = tutor.name
+            let subjectName = arrSubjects.first(where: {$0._id == tutor.subjectId ?? ""})?.name ?? ""
+            if subjectName != "" {
+                lblName.text = (tutor.name ?? "") + ", \(subjectName)"
+            } else {
+                lblName.text = tutor.name
+            }
             lblEmail.text = tutor.email
             viewRating.rating = tutor.overallRating ?? 0.0
             imgProfile.loadImageWithIndicator(tutor.image, placeholder: .profilePlaceholder)
