@@ -57,11 +57,16 @@ class RatingDetailVC: UIViewController {
             Utility.hideLoader(from: self)
             if success {
                 if let comments = response as? NSArray {
+                    self.arrComments.removeAll()
                     for i in 0..<comments.count {
                         if let dict = comments[i] as? NSDictionary {
                             let objTut = CommentModel(_id: dict["_id"] as! String, ratingId: dict["ratingId"] as! String, commentedById: dict["commentedById"] as! String, commentedByImage: dict["commentedByImage"] as? String ?? "", commentedByName: dict["commentedByName"] as? String ?? "", comment: dict["comment"] as! String, timestamp: dict["timestamp"] as! Int64)
                             self.arrComments.append(objTut)
                         }
+                    }
+                    self.arrComments = self.arrComments.sorted(by: {$0.timestamp < $1.timestamp})
+                    if self.arrComments.count > 0 {
+                        self.tblComments.scrollToRow(at: IndexPath(row: self.arrComments.count - 1, section: 0), at: .bottom, animated: true)
                     }
                 } else {
                     Utility.showAlert(with: Messages.noTutors, on: self)
@@ -75,7 +80,24 @@ class RatingDetailVC: UIViewController {
     
     //MARK: IBActions
     @IBAction func sendPressed(_ sender: UIButton) {
-        
+        if let text = txtView.text, text != "" {
+            // add comment api
+            Utility.showLoader(on: self)
+            let params = ["ratingId":self.rating._id,"commentedById":Utility.getUD(UserDefaultKeys.userId) as! String, "commentedByImage":Utility.getUD(UserDefaultKeys.image) as! String, "commentedByName":Utility.getUD(UserDefaultKeys.name) as! String,"comment":text,"timestamp":Utility.currentTimestamp] as [String:Any]
+            Webservices.instance.post(url: API_BASE_URL+"comment/addComment", params: params) { success, response, error in
+                Utility.hideLoader(from: self)
+                if success {
+                    print("added comment, refresh now")
+                    self.view.endEditing(true)
+                    self.txtView.text = ""
+                    self.getAllComments()
+                } else {
+                    Utility.showAlert(with: error ?? Messages.commonError, on: self)
+                }
+            }
+        } else {
+            view.endEditing(true)
+        }
     }
     
 }
